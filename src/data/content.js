@@ -2,20 +2,22 @@
 // Troque os valores marcados como placeholder pelo seu conteúdo real.
 
 export const bio = {
-  placeholder: '[PLACEHOLDER — escreva sua bio aqui]',
-  example: `Ex: desenvolvedor focado em transformar processos manuais em
-  sistemas confiáveis, com passagem por agroindústria, sistemas de gestão
-  e pesquisa aplicada. Gosto de entender o problema antes de abrir o editor.`,
+  text: `Estudante de Engenharia de Software na Biopark, atuando como
+  Assistente Técnico na C.Vale Cooperativa Agroindustrial e estagiário
+  na Inside Sistemas produzindo documentação técnica para ERPs. Gosto de
+  transformar processo manual e workflow travado em sistema que funciona
+  sozinho — automação, arquitetura DDD e um pouco de conteúdo educacional
+  pelo caminho.`,
   stack: [
-    'JavaScript',
     'TypeScript',
     'React',
+    'NestJS',
+    'Flutter',
     'Node.js',
     'Python',
     'PostgreSQL',
     'Docker',
-    'Git',
-    '[edite sua stack real]',
+    'Drizzle ORM',
   ],
 };
 
@@ -23,76 +25,99 @@ export const commits = [
   {
     id: 'c.vale',
     hash: 'c.vale',
-    date: '2024 → atual',
     tag: 'HEAD',
     scope: 'c.vale',
-    role: '[PLACEHOLDER — seu cargo na C.Vale]',
-    additions: [
-      '[placeholder conquista 1 — ex: automatizou processo X, reduzindo Y horas/semana]',
-      '[placeholder conquista 2]',
+    roles: [
+      {
+        date: '[PLACEHOLDER — período na C.Vale]',
+        role: 'Assistente Técnico',
+        additions: [
+          '[PLACEHOLDER — conquista/entrega concreta na C.Vale]',
+          '[PLACEHOLDER — conquista 2]',
+        ],
+        removals: ['[PLACEHOLDER — problema/processo manual resolvido]'],
+        stack: ['[PLACEHOLDER — stack usada na C.Vale]'],
+      },
     ],
-    removals: [
-      '[placeholder problema resolvido 1 — ex: eliminou retrabalho manual em Z]',
-      '[placeholder problema resolvido 2]',
-    ],
-    stack: ['[stack usada]'],
   },
   {
     id: 'inside-sistemas',
     hash: 'inside-sis',
-    date: '[período placeholder]',
     tag: null,
     scope: 'inside-sistemas',
-    role: '[PLACEHOLDER — seu cargo na Inside Sistemas]',
-    additions: ['[placeholder conquista 1]', '[placeholder conquista 2]'],
-    removals: ['[placeholder problema resolvido 1]', '[placeholder problema resolvido 2]'],
-    stack: ['[stack usada]'],
+    roles: [
+      {
+        date: '[PLACEHOLDER — período no cargo atual]',
+        role: 'Especialista em Documentação Técnica (ERP)',
+        additions: [
+          'Corrigiu workflow de sincronização bidirecional SQL Server ↔ Sense Data (Cancelamentos.json), eliminando falha de SQL injection',
+          'Migrou fluxo de onboarding de novos colaboradores do Kubo LMS para uma FastAPI interna',
+          'Produziu roteiros e slides para a "Universidade Inside" sobre a reforma tributária (IBS/CBS/IS)',
+        ],
+        removals: ['Eliminou falha de segurança (SQL injection) em workflow crítico de cancelamentos'],
+        stack: ['n8n', 'SQL Server', 'FastAPI', 'ElevenLabs TTS'],
+      },
+      {
+        date: '[PLACEHOLDER — período no cargo anterior]',
+        role: '[PLACEHOLDER — cargo anterior na Inside Sistemas]',
+        additions: [
+          '[PLACEHOLDER — conquista no cargo anterior]',
+          '[PLACEHOLDER — conquista 2]',
+        ],
+        removals: ['[PLACEHOLDER — problema resolvido no cargo anterior]'],
+        stack: ['[PLACEHOLDER — stack usada no cargo anterior]'],
+      },
+    ],
   },
   {
     id: 'biopark',
     hash: 'biopark',
-    date: '[período placeholder]',
     tag: 'root-commit',
     scope: 'biopark',
-    role: '[PLACEHOLDER — seu cargo/curso na Biopark]',
-    additions: [
-      '[placeholder conquista 1 — primeira experiência, projeto de destaque]',
-      '[placeholder conquista 2]',
+    roles: [
+      {
+        date: '[PLACEHOLDER — ano de início]',
+        role: 'Estudante de Engenharia de Software',
+        additions: ['[PLACEHOLDER — projeto/trabalho de destaque na faculdade]'],
+        removals: [],
+        stack: ['Flutter', 'Clean Architecture', 'BLoC/Riverpod'],
+      },
     ],
-    removals: ['[placeholder problema resolvido 1]'],
-    stack: ['[stack usada]'],
   },
 ];
 
 export const projects = [
   {
-    id: 'projeto-um',
-    filename: 'projeto-um.tsx',
-    name: '[Nome do projeto 1]',
-    description: '[Descrição curta — o problema que resolve e o resultado prático]',
-    stack: ['React', 'Node.js'],
+    id: 'barberfoundation',
+    filename: 'barber-foundation.dart',
+    name: 'BarberFoundation',
+    description:
+      'Plataforma de agendamento para barbearias — mobile em Flutter, admin em React e backend NestJS/DDD. Foco em mecânicas de retenção (fidelidade, lembretes, indicações) mantendo infra abaixo de R$150/mês.',
+    stack: ['Flutter', 'NestJS', 'React', 'Supabase', 'Fly.io'],
     href: '#',
   },
   {
-    id: 'projeto-dois',
-    filename: 'projeto-dois.py',
-    name: '[Nome do projeto 2]',
-    description: '[Descrição curta — o problema que resolve e o resultado prático]',
-    stack: ['Python', 'PostgreSQL'],
+    id: 'orcamento-v2',
+    filename: 'orcamento-v2.ts',
+    name: 'Orçamento.V2',
+    description:
+      'SaaS multi-tenant de gestão de orçamentos, com monorepo pnpm/Turborepo e backend em DDD. Passou por um ciclo completo de revisão técnica, elevando a nota de qualidade de 6.0 para 7.5/10.',
+    stack: ['NestJS', 'Drizzle ORM', 'PostgreSQL', 'React', 'Turborepo'],
     href: '#',
   },
   {
-    id: 'projeto-tres',
-    filename: 'projeto-tres.go',
-    name: '[Nome do projeto 3]',
-    description: '[Descrição curta — o problema que resolve e o resultado prático]',
-    stack: ['Docker', 'CI/CD'],
+    id: 'price-drop',
+    filename: 'price-drop-bot.py',
+    name: 'PRICE DROP',
+    description:
+      'Automação de afiliados para TikTok e Instagram (nicho moda feminina) — pipelines com avatar de IA e overlay de texto, geração de posts com Sharp/node-canvas e funil de monetização via WhatsApp.',
+    stack: ['FFmpeg', 'HeyGen', 'Sharp', 'node-canvas'],
     href: '#',
   },
 ];
 
 export const contact = {
   email: 'gabryelpaiva123@gmail.com',
-  github: '[seu-usuario-github]',
-  whatsapp: '[whatsapp-link]',
+  github: 'OPaiva-1721',
+  whatsapp: '[PLACEHOLDER — link do whatsapp, ex: https://wa.me/55DDNUMERO]',
 };

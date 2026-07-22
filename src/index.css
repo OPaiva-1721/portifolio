@@ -515,6 +515,19 @@ body.has-bg-video .bg-blobs {
   font-weight: 500;
 }
 
+/* quando uma empresa tem mais de um cargo, cada um vira um .role-entry
+   dentro do MESMO card — só uma linha divisória entre eles, não um card novo */
+.role-entry + .role-entry {
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.role-date {
+  font-size: 0.78rem;
+  margin: 0 0 0.4rem;
+}
+
 .diff {
   font-family: var(--font-mono);
   font-size: 0.88rem;
