@@ -137,5 +137,5 @@ export const projects = [
 export const contact = {
   email: 'gabryelpaiva123@gmail.com',
   github: 'OPaiva-1721',
-  whatsapp: 'https://wa.me/5544998727549',
+  whatsapp: 'https://wa.me/o_paiva06',
 };
