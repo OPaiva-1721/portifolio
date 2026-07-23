@@ -94,11 +94,14 @@ export const commits = [
     scope: 'biopark',
     roles: [
       {
-        date: '[PLACEHOLDER — ano de início]',
+        date: '2023 — previsão 2027 · 4 anos · Toledo, Paraná',
         role: 'Estudante de Engenharia de Software',
-        additions: ['[PLACEHOLDER — projeto/trabalho de destaque na faculdade]'],
+        additions: [
+          'Banco de Questões Donaduzzi — sistema completo de gerenciamento de provas em Flutter/Firebase para instituições de ensino: banco de questões, montagem de provas customizadas e correção automática',
+          'Arquitetura em camadas (UI, serviços, utilitários, core) com padrões Facade, Repository e Singleton; multiplataforma (Android, iOS, Web, Windows, macOS, Linux)',
+        ],
         removals: [],
-        stack: ['Flutter', 'Clean Architecture', 'BLoC/Riverpod'],
+        stack: ['Flutter', 'Firebase', 'Clean Architecture', 'BLoC/Riverpod'],
       },
     ],
   },
