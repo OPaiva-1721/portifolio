@@ -110,7 +110,7 @@ export const projects = [
     filename: 'barber-foundation.dart',
     name: 'BarberFoundation',
     description:
-      'Plataforma de agendamento para barbearias — mobile em Flutter, admin em React e backend NestJS/DDD. Foco em mecânicas de retenção (fidelidade, lembretes, indicações) mantendo infra abaixo de R$150/mês.',
+      'Plataforma de agendamento para barbearias — mobile em Flutter, admin em React e backend NestJS/DDD. Foco em mecânicas de retenção (fidelidade, lembretes, indicações) mantendo infra.',
     stack: ['Flutter', 'NestJS', 'React', 'Supabase', 'Fly.io'],
     href: 'https://github.com/BarberFoundation',
   },
