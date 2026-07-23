@@ -453,6 +453,12 @@ body.has-bg-video .bg-blobs {
   font-size: 0.85rem;
 }
 
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
 .tag {
   font-family: var(--font-mono);
   font-size: 0.78rem;

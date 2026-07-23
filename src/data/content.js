@@ -29,14 +29,14 @@ export const commits = [
     scope: 'c.vale',
     roles: [
       {
-        date: '[PLACEHOLDER — período na C.Vale]',
-        role: 'Assistente Técnico',
+        date: 'set de 2024 — jan de 2026 · 1 ano 5 meses · Palotina, Paraná',
+        role: 'Jovem Aprendiz T.I.',
         additions: [
-          '[PLACEHOLDER — conquista/entrega concreta na C.Vale]',
-          '[PLACEHOLDER — conquista 2]',
+          'Manutenção de computadores e suporte técnico pra diversos departamentos da empresa',
+          'Aplicou boas práticas e novas tecnologias pra otimizar processos e infraestrutura de TI',
         ],
-        removals: ['[PLACEHOLDER — problema/processo manual resolvido]'],
-        stack: ['[PLACEHOLDER — stack usada na C.Vale]'],
+        removals: [],
+        stack: ['Suporte Técnico', 'Manutenção de Hardware', 'Infraestrutura de TI'],
       },
     ],
   },
@@ -47,25 +47,43 @@ export const commits = [
     scope: 'inside-sistemas',
     roles: [
       {
-        date: '[PLACEHOLDER — período no cargo atual]',
-        role: 'Especialista em Documentação Técnica (ERP)',
+        date: 'jul de 2026 — o momento · 1 mês · Toledo, Paraná · Tempo integral',
+        role: 'Analista de Criação de Vídeo',
         additions: [
           'Corrigiu workflow de sincronização bidirecional SQL Server ↔ Sense Data (Cancelamentos.json), eliminando falha de SQL injection',
           'Migrou fluxo de onboarding de novos colaboradores do Kubo LMS para uma FastAPI interna',
-          'Produziu roteiros e slides para a "Universidade Inside" sobre a reforma tributária (IBS/CBS/IS)',
+          'Roteirização, produção de slides e narração com TTS para a "Universidade Inside"',
         ],
         removals: ['Eliminou falha de segurança (SQL injection) em workflow crítico de cancelamentos'],
         stack: ['n8n', 'SQL Server', 'FastAPI', 'ElevenLabs TTS'],
       },
       {
-        date: '[PLACEHOLDER — período no cargo anterior]',
-        role: '[PLACEHOLDER — cargo anterior na Inside Sistemas]',
+        date: 'fev de 2026 — jun de 2026 · 5 meses · Toledo, Paraná · Estágio',
+        role: 'Estagiário',
         additions: [
-          '[PLACEHOLDER — conquista no cargo anterior]',
-          '[PLACEHOLDER — conquista 2]',
+          'Documentação técnica dos sistemas ERP Service e EuGestor',
+          'Produziu e formatou artigos de suporte para a base de conhecimento',
         ],
-        removals: ['[PLACEHOLDER — problema resolvido no cargo anterior]'],
-        stack: ['[PLACEHOLDER — stack usada no cargo anterior]'],
+        removals: [],
+        stack: ['ERP Service', 'EuGestor', 'Documentação Técnica'],
+      },
+    ],
+  },
+  {
+    id: 'iriedi',
+    hash: 'iriedi',
+    tag: null,
+    scope: 'i.riedi',
+    roles: [
+      {
+        date: 'mai de 2022 — abr de 2024 · 2 anos · Palotina, Paraná',
+        role: 'Assistente Administrativo (Jovem Aprendiz)',
+        additions: [
+          'Apoiou atendimento ao público e organização/conferência de estoque',
+          'Preenchimento de planilhas e arquivamento de documentos no dia a dia administrativo',
+        ],
+        removals: [],
+        stack: ['Excel', 'Atendimento', 'Gestão de estoque'],
       },
     ],
   },
@@ -94,7 +112,7 @@ export const projects = [
     description:
       'Plataforma de agendamento para barbearias — mobile em Flutter, admin em React e backend NestJS/DDD. Foco em mecânicas de retenção (fidelidade, lembretes, indicações) mantendo infra abaixo de R$150/mês.',
     stack: ['Flutter', 'NestJS', 'React', 'Supabase', 'Fly.io'],
-    href: '#',
+    href: 'https://github.com/BarberFoundation',
   },
   {
     id: 'orcamento-v2',
@@ -103,7 +121,7 @@ export const projects = [
     description:
       'SaaS multi-tenant de gestão de orçamentos, com monorepo pnpm/Turborepo e backend em DDD. Passou por um ciclo completo de revisão técnica, elevando a nota de qualidade de 6.0 para 7.5/10.',
     stack: ['NestJS', 'Drizzle ORM', 'PostgreSQL', 'React', 'Turborepo'],
-    href: '#',
+    href: 'https://github.com/OPaiva-1721/Orcamento.V2',
   },
   {
     id: 'price-drop',
@@ -112,12 +130,12 @@ export const projects = [
     description:
       'Automação de afiliados para TikTok e Instagram (nicho moda feminina) — pipelines com avatar de IA e overlay de texto, geração de posts com Sharp/node-canvas e funil de monetização via WhatsApp.',
     stack: ['FFmpeg', 'HeyGen', 'Sharp', 'node-canvas'],
-    href: '#',
+    href: 'https://github.com/OPaiva-1721/Instabot-v2',
   },
 ];
 
 export const contact = {
   email: 'gabryelpaiva123@gmail.com',
   github: 'OPaiva-1721',
-  whatsapp: '[PLACEHOLDER — link do whatsapp, ex: https://wa.me/55DDNUMERO]',
+  whatsapp: 'https://wa.me/5544998727549',
 };

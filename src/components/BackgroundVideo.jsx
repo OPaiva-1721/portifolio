@@ -11,7 +11,7 @@ import { useEffect, useRef, useState } from 'react';
 // mesmo frame então não há salto visual.
 function shouldSkipVideo() {
   const saveData = navigator.connection?.saveData;
-  const isNarrow = window.matchMedia('(max-width: 640px)').matches;
+  const isNarrow = window.matchMedia('(max-width: 480px)').matches;
   return Boolean(saveData) || isNarrow;
 }
 

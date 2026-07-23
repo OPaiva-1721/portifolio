@@ -10,6 +10,8 @@ const prefersReducedMotion = () =>
 const GLASS_SHADOW = '0 8px 32px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.1)';
 const GLASS_SHADOW_HOVER = '0 16px 40px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.15)';
 
+const hasLink = (href) => Boolean(href) && href !== '#';
+
 export default function ProjectCard({ project }) {
   const cardRef = useRef(null);
   const dotRef = useRef(null);
@@ -66,9 +68,14 @@ export default function ProjectCard({ project }) {
     });
   };
 
+  const Tag = hasLink(project.href) ? 'a' : 'div';
+  const linkProps = hasLink(project.href)
+    ? { href: project.href, target: '_blank', rel: 'noopener noreferrer' }
+    : {};
+
   return (
-    <a
-      href={project.href}
+    <Tag
+      {...linkProps}
       className="project-card"
       ref={cardRef}
       onMouseEnter={handleEnter}
@@ -90,6 +97,6 @@ export default function ProjectCard({ project }) {
           ))}
         </div>
       </div>
-    </a>
+    </Tag>
   );
 }
