@@ -88,8 +88,8 @@ export default function Hero() {
           <a href="#experiencia" className="btn btn-primary">
             → ver o changelog
           </a>
-          <a href="#" className="btn btn-ghost">
-            baixar CV <span className="mono dim">[placeholder-link]</span>
+          <a href="/#cv" className="btn btn-ghost" target="_blank" rel="noopener noreferrer">
+            baixar CV
           </a>
         </div>
       </div>

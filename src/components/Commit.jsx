@@ -7,8 +7,11 @@ export default function Commit({ commit }) {
     <article className="commit" ref={ref}>
       <div className="commit-meta mono">
         <span className="hash">{commit.hash}</span>
-        {commit.tag === 'HEAD' && <span className="head-tag">HEAD</span>}
-        {commit.tag === 'root-commit' && <span className="root-tag">root-commit</span>}
+        {commit.tag === 'root-commit' ? (
+          <span className="root-tag">root-commit</span>
+        ) : (
+          commit.tag && <span className="head-tag">{commit.tag}</span>
+        )}
       </div>
 
       {commit.roles.map((role, i) => (

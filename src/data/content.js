@@ -2,12 +2,9 @@
 // Troque os valores marcados como placeholder pelo seu conteúdo real.
 
 export const bio = {
-  text: `Estudante de Engenharia de Software na Biopark, atuando como
-  Assistente Técnico na C.Vale Cooperativa Agroindustrial e estagiário
-  na Inside Sistemas produzindo documentação técnica para ERPs. Gosto de
-  transformar processo manual e workflow travado em sistema que funciona
-  sozinho — automação, arquitetura DDD e um pouco de conteúdo educacional
-  pelo caminho.`,
+  text: `Estudante de Engenharia de Software no Biopark, sou um profissional dedicado e proativo, com
+  experiência administrativa, suporte técnico, desenvolvimento e criação. Aprendo de forma autodidata, 
+  trabalho bem em equipe e aplico raciocínio lógico para otimizar resultados.`,
   stack: [
     'TypeScript',
     'React',
@@ -23,27 +20,9 @@ export const bio = {
 
 export const commits = [
   {
-    id: 'c.vale',
-    hash: 'c.vale',
-    tag: 'HEAD',
-    scope: 'c.vale',
-    roles: [
-      {
-        date: 'set de 2024 — jan de 2026 · 1 ano 5 meses · Palotina, Paraná',
-        role: 'Jovem Aprendiz T.I.',
-        additions: [
-          'Manutenção de computadores e suporte técnico pra diversos departamentos da empresa',
-          'Aplicou boas práticas e novas tecnologias pra otimizar processos e infraestrutura de TI',
-        ],
-        removals: [],
-        stack: ['Suporte Técnico', 'Manutenção de Hardware', 'Infraestrutura de TI'],
-      },
-    ],
-  },
-  {
     id: 'inside-sistemas',
     hash: 'inside-sis',
-    tag: null,
+    tag: 'Atual',
     scope: 'inside-sistemas',
     roles: [
       {
@@ -55,7 +34,7 @@ export const commits = [
           'Roteirização, produção de slides e narração com TTS para a "Universidade Inside"',
         ],
         removals: ['Eliminou falha de segurança (SQL injection) em workflow crítico de cancelamentos'],
-        stack: ['n8n', 'SQL Server', 'FastAPI', 'ElevenLabs TTS'],
+        stack: ['n8n', 'SQL Server', 'FastAPI', 'TTS'],
       },
       {
         date: 'fev de 2026 — jun de 2026 · 5 meses · Toledo, Paraná · Estágio',
@@ -66,6 +45,24 @@ export const commits = [
         ],
         removals: [],
         stack: ['ERP Service', 'EuGestor', 'Documentação Técnica'],
+      },
+    ],
+  },
+  {
+    id: 'c.vale',
+    hash: 'c.vale',
+    tag: null,
+    scope: 'c.vale',
+    roles: [
+      {
+        date: 'set de 2024 — jan de 2026 · 1 ano 5 meses · Palotina, Paraná',
+        role: 'Jovem Aprendiz T.I.',
+        additions: [
+          'Manutenção de computadores e suporte técnico pra diversos departamentos da empresa',
+          'Aplicou boas práticas e novas tecnologias pra otimizar processos e infraestrutura de TI',
+        ],
+        removals: [],
+        stack: ['Suporte Técnico', 'Manutenção de Hardware', 'Infraestrutura de TI'],
       },
     ],
   },
@@ -97,7 +94,7 @@ export const commits = [
         date: '2023 — previsão 2027 · 4 anos · Toledo, Paraná',
         role: 'Estudante de Engenharia de Software',
         additions: [
-          'Banco de Questões Donaduzzi — sistema completo de gerenciamento de provas em Flutter/Firebase para instituições de ensino: banco de questões, montagem de provas customizadas e correção automática',
+          'Um dos projetos que mais gostei foi o Banco de Questões Donaduzzi — sistema completo de gerenciamento de provas em Flutter/Firebase para instituições de ensino: banco de questões, montagem de provas customizadas e correção automática',
           'Arquitetura em camadas (UI, serviços, utilitários, core) com padrões Facade, Repository e Singleton; multiplataforma (Android, iOS, Web, Windows, macOS, Linux)',
         ],
         removals: [],
