@@ -21,12 +21,12 @@ export const bio = {
 export const commits = [
   {
     id: 'inside-sistemas',
-    hash: 'inside-sis',
+    hash: 'Inside-Sistemas',
     tag: 'Atual',
     scope: 'inside-sistemas',
     roles: [
       {
-        date: 'jul de 2026 — o momento · 1 mês · Toledo, Paraná · Tempo integral',
+        date: 'Jul de 2026 — o momento · 1 mês · Toledo, Paraná · Tempo integral',
         role: 'Analista de Criação de Vídeo',
         additions: [
           'Corrigiu workflow de sincronização bidirecional SQL Server ↔ Sense Data (Cancelamentos.json), eliminando falha de SQL injection',
@@ -37,7 +37,7 @@ export const commits = [
         stack: ['n8n', 'SQL Server', 'FastAPI', 'TTS'],
       },
       {
-        date: 'fev de 2026 — jun de 2026 · 5 meses · Toledo, Paraná · Estágio',
+        date: 'Fev de 2026 — jun de 2026 · 5 meses · Toledo, Paraná · Estágio',
         role: 'Estagiário',
         additions: [
           'Documentação técnica dos sistemas ERP Service e EuGestor',
@@ -50,12 +50,12 @@ export const commits = [
   },
   {
     id: 'c.vale',
-    hash: 'c.vale',
+    hash: 'C.vale',
     tag: null,
     scope: 'c.vale',
     roles: [
       {
-        date: 'set de 2024 — jan de 2026 · 1 ano 5 meses · Palotina, Paraná',
+        date: 'Set de 2024 — jan de 2026 · 1 ano 5 meses · Palotina, Paraná',
         role: 'Jovem Aprendiz T.I.',
         additions: [
           'Manutenção de computadores e suporte técnico pra diversos departamentos da empresa',
@@ -67,13 +67,13 @@ export const commits = [
     ],
   },
   {
-    id: 'iriedi',
-    hash: 'iriedi',
+    id: 'Iriedi',
+    hash: 'Iriedi',
     tag: null,
     scope: 'i.riedi',
     roles: [
       {
-        date: 'mai de 2022 — abr de 2024 · 2 anos · Palotina, Paraná',
+        date: 'Mai de 2022 — abr de 2024 · 2 anos · Palotina, Paraná',
         role: 'Assistente Administrativo (Jovem Aprendiz)',
         additions: [
           'Apoiou atendimento ao público e organização/conferência de estoque',
@@ -86,7 +86,7 @@ export const commits = [
   },
   {
     id: 'biopark',
-    hash: 'biopark',
+    hash: 'Biopark',
     tag: 'root-commit',
     scope: 'biopark',
     roles: [
@@ -135,7 +135,8 @@ export const projects = [
 ];
 
 export const contact = {
+  name: 'Gabryel Paiva Neves',
   email: 'gabryelpaiva123@gmail.com',
   github: 'OPaiva-1721',
-  whatsapp: 'https://wa.me/o_paiva06',
+  whatsapp: 'https://wa.me/554498727549',
 };

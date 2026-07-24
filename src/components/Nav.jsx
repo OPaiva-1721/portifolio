@@ -34,7 +34,7 @@ export default function Nav() {
     <nav className="tabbar" ref={navRef} onMouseMove={handleMouseMove} aria-label="Navegação principal">
       <div className="tabbar-inner">
         <a href="#hero" className="tabbar-brand" onClick={() => setOpen(false)}>
-          gabryel<span className="dim">.dev</span>
+          paiva<span className="dim">.dev</span>
         </a>
 
         <div className="tabbar-links">
