@@ -123,13 +123,13 @@ export const projects = [
     href: 'https://github.com/OPaiva-1721/Orcamento.V2',
   },
   {
-    id: 'orcamento-v2',
-    filename: 'orcamento-v2.ts',
-    name: 'Orçamento.V2',
+    id: 'price-drop',
+    filename: 'instabot-v2.py',
+    name: 'PRICE DROP',
     description:
-      'Desenvolvi um SaaS multi-tenant para gestão de orçamentos utilizando monorepo com pnpm/Turborepo e backend em DDD. O projeto passou por uma revisão técnica completa, com correções de segurança e melhorias de arquitetura.',
-    stack: ['NestJS', 'Drizzle ORM', 'PostgreSQL', 'React', 'Turborepo'],
-    href: 'https://github.com/OPaiva-1721/Orcamento.V2',
+      'Criei uma automação para produção de conteúdo afiliado voltada ao TikTok e Instagram, utilizando avatar de IA, geração automática de imagens e vídeos e um funil de monetização integrado ao WhatsApp.',
+    stack: ['Python', 'IA Generativa', 'Automação', 'WhatsApp API'],
+    href: 'https://github.com/OPaiva-1721/Instabot-v2',
   },
 ];
 
