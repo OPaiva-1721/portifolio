@@ -787,6 +787,30 @@ body.has-bg-video .bg-blobs {
   border-radius: 4px;
 }
 
+.cv-tags-soft {
+  margin-top: 0.3rem;
+}
+
+.cv-tag-soft {
+  color: var(--cv-lilac);
+}
+
+.cv-cert-list {
+  margin: 0.4rem 0 0;
+  padding-left: 1.1rem;
+  font-size: 0.82rem;
+}
+
+.cv-cert-list li {
+  margin-bottom: 0.15rem;
+}
+
+.cv-entry-institution {
+  margin: 0.1rem 0 0.3rem;
+  font-size: 0.8rem;
+  color: var(--cv-dim);
+}
+
 .cv-entry {
   margin-bottom: 0.4rem;
 }

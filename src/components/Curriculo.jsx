@@ -1,4 +1,4 @@
-import { bio, commits, projects, contact } from '../data/content.js';
+import { bio, education, commits, projects, contact, certifications } from '../data/content.js';
 
 export default function Curriculo() {
   return (
@@ -21,6 +21,38 @@ export default function Curriculo() {
         <div className="cv-body">
           <aside className="cv-sidebar">
             <section className="cv-section">
+              <h2>Sobre mim</h2>
+              <p className="cv-bio">{bio.text}</p>
+            </section>
+
+            <section className="cv-section">
+              <h2>Skills</h2>
+              <div className="cv-tags">
+                {bio.stack.map((item) => (
+                  <span className="cv-tag" key={item}>
+                    {item}
+                  </span>
+                ))}
+              </div>
+              <div className="cv-tags cv-tags-soft">
+                {bio.softSkills.map((item) => (
+                  <span className="cv-tag cv-tag-soft" key={item}>
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </section>
+
+            <section className="cv-section">
+              <h2>Certificações</h2>
+              <ul className="cv-cert-list">
+                {certifications.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </section>
+
+            <section className="cv-section">
               <h2>Contato</h2>
               <div className="cv-contacts">
                 <a href={`mailto:${contact.email}`}>{contact.email}</a>
@@ -32,25 +64,25 @@ export default function Curriculo() {
                 </a>
               </div>
             </section>
-
-            <section className="cv-section">
-              <h2>Resumo</h2>
-              <p className="cv-bio">{bio.text}</p>
-            </section>
-
-            <section className="cv-section">
-              <h2>Stack</h2>
-              <div className="cv-tags">
-                {bio.stack.map((item) => (
-                  <span className="cv-tag" key={item}>
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </section>
           </aside>
 
           <div className="cv-main">
+            <section className="cv-section">
+              <h2>Formação</h2>
+              {education.map((item) => (
+                <div className="cv-entry" key={item.id}>
+                  <div className="cv-role">
+                    <div className="cv-entry-head">
+                      <span className="cv-entry-role">{item.degree}</span>
+                      <span className="cv-entry-date">{item.period}</span>
+                    </div>
+                    <p className="cv-entry-institution">{item.institution}</p>
+                    <p>{item.description}</p>
+                  </div>
+                </div>
+              ))}
+            </section>
+
             <section className="cv-section">
               <h2>Experiência</h2>
               {commits.map((commit) => (

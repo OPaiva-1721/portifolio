@@ -13,7 +13,26 @@ export const bio = {
     'Docker',
     'Drizzle ORM',
   ],
+  softSkills: ['Raciocínio lógico', 'Comunicação assertiva', 'Proatividade', 'Responsabilidade'],
 };
+
+export const education = [
+  {
+    id: 'biopark',
+    degree: 'Engenharia de Software',
+    institution: 'Faculdade Biopark',
+    period: '2023 — previsão 2027 · Toledo, Paraná',
+    description:
+      'Um dos projetos que mais gostei de desenvolver foi o Banco de Questões Donaduzzi, um sistema completo em Flutter e Firebase para gerenciamento de provas, banco de questões, montagem personalizada de avaliações e correção automática, utilizando arquitetura em camadas e padrões como Facade, Repository e Singleton.',
+  },
+];
+
+export const certifications = [
+  'Google Cloud Cybersecurity',
+  'Google Cloud IA Generativa',
+  'Inglês técnico',
+  'Pacote Office',
+];
 
 export const commits = [
   {
@@ -79,24 +98,6 @@ export const commits = [
         ],
         removals: [],
         stack: ['Excel', 'Atendimento', 'Gestão de Estoque'],
-      },
-    ],
-  },
-  {
-    id: 'biopark',
-    hash: 'Biopark',
-    tag: 'root-commit',
-    scope: 'biopark',
-    roles: [
-      {
-        date: '2023 — previsão 2027 · 4 anos · Toledo, Paraná',
-        role: 'Estudante de Engenharia de Software',
-        additions: [
-          'Um dos projetos que mais gostei de desenvolver foi o Banco de Questões Donaduzzi, um sistema completo em Flutter e Firebase para gerenciamento de provas, banco de questões, montagem personalizada de avaliações e correção automática',
-          'Desenvolvi a aplicação utilizando arquitetura em camadas, padrões como Facade, Repository e Singleton, com suporte multiplataforma',
-        ],
-        removals: [],
-        stack: ['Flutter', 'Firebase', 'Clean Architecture', 'BLoC/Riverpod'],
       },
     ],
   },
