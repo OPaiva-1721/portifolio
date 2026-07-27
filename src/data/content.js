@@ -122,15 +122,6 @@ export const projects = [
     stack: ['NestJS', 'Drizzle ORM', 'PostgreSQL', 'React', 'Turborepo'],
     href: 'https://github.com/OPaiva-1721/Orcamento.V2',
   },
-  {
-    id: 'price-drop',
-    filename: 'price-drop-bot.py',
-    name: 'PRICE DROP',
-    description:
-      'Criei uma automação para produção de conteúdo afiliado voltada ao TikTok e Instagram, utilizando avatar de IA, geração automática de imagens e vídeos e um funil de monetização integrado ao WhatsApp.',
-    stack: ['FFmpeg', 'HeyGen', 'Sharp', 'node-canvas'],
-    href: 'https://github.com/OPaiva-1721/Instabot-v2',
-  },
 ];
 
 export const contact = {
