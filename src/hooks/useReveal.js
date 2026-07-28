@@ -22,14 +22,21 @@ export default function useReveal({ translateY = 16, duration = 600, delay = 0 }
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            anime({
-              targets: el,
-              opacity: [0, 1],
-              translateY: [translateY, 0],
-              duration,
-              delay,
-              easing: 'easeOutQuad',
-            });
+            try {
+              anime({
+                targets: el,
+                opacity: [0, 1],
+                translateY: [translateY, 0],
+                duration,
+                delay,
+                easing: 'easeOutQuad',
+              });
+            } catch {
+              // se o anime.js falhar em runtime, garante que o elemento
+              // não fique preso em opacity:0 (mesmo fallback do Hero.jsx)
+              el.style.opacity = 1;
+              el.style.transform = 'none';
+            }
             observer.unobserve(el);
           }
         });

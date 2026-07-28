@@ -8,6 +8,7 @@ import Projetos from './components/Projetos.jsx';
 import Contato from './components/Contato.jsx';
 import Footer from './components/Footer.jsx';
 import Curriculo from './components/Curriculo.jsx';
+import ErrorBoundary from './components/ErrorBoundary.jsx';
 
 export default function App() {
   const [isCv, setIsCv] = useState(() => window.location.hash === '#cv');
@@ -32,11 +33,13 @@ export default function App() {
       </div>
       <Nav />
       <main>
-        <Hero />
-        <Sobre />
-        <Experiencia />
-        <Projetos />
-        <Contato />
+        <ErrorBoundary>
+          <Hero />
+          <Sobre />
+          <Experiencia />
+          <Projetos />
+          <Contato />
+        </ErrorBoundary>
       </main>
       <Footer />
     </>
