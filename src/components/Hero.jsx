@@ -15,53 +15,70 @@ export default function Hero() {
   useEffect(() => {
     const letters = lettersWrapRef.current.querySelectorAll('.letter');
 
-    if (prefersReducedMotion()) {
+    // Garante que nome, subtítulo e CTAs fiquem visíveis mesmo se o anime.js
+    // falhar em runtime — sem isso, o hero fica permanentemente invisível
+    // (o CSS parte de opacity:0 pra evitar flash antes da animação).
+    const revealWithoutAnimation = () => {
       letters.forEach((l) => (l.style.opacity = 1));
-      subtitleRef.current.style.opacity = 0.85;
-      subtitleRef.current.style.transform = 'none';
-      ctaRef.current.style.opacity = 1;
-      ctaRef.current.style.transform = 'none';
+      if (subtitleRef.current) {
+        subtitleRef.current.style.opacity = 0.85;
+        subtitleRef.current.style.transform = 'none';
+      }
+      if (ctaRef.current) {
+        ctaRef.current.style.opacity = 1;
+        ctaRef.current.style.transform = 'none';
+      }
+    };
+
+    if (prefersReducedMotion()) {
+      revealWithoutAnimation();
       return;
     }
 
-    const timeline = anime.timeline({ easing: 'easeOutExpo' });
+    try {
+      const timeline = anime.timeline({ easing: 'easeOutExpo' });
 
-    timeline
-      .add({
-        targets: letters,
-        opacity: [0, 1],
-        duration: 1,
-        delay: anime.stagger(65),
-      })
-      .add(
-        {
-          targets: subtitleRef.current,
-          opacity: [0, 0.85],
-          translateY: [6, 0],
-          duration: 600,
-        },
-        '+=100'
-      )
-      .add(
-        {
-          targets: ctaRef.current,
+      timeline
+        .add({
+          targets: letters,
           opacity: [0, 1],
-          translateY: [6, 0],
-          duration: 600,
-        },
-        '-=400'
-      );
+          duration: 1,
+          delay: anime.stagger(65),
+        })
+        .add(
+          {
+            targets: subtitleRef.current,
+            opacity: [0, 0.85],
+            translateY: [6, 0],
+            duration: 600,
+          },
+          '+=100'
+        )
+        .add(
+          {
+            targets: ctaRef.current,
+            opacity: [0, 1],
+            translateY: [6, 0],
+            duration: 600,
+          },
+          '-=400'
+        );
 
-    timeline.finished.then(() => {
-      anime({
-        targets: cursorRef.current,
-        opacity: [1, 0],
-        duration: 500,
-        direction: 'alternate',
-        loop: true,
-        easing: 'steps(1)',
-      });
-    });
+      timeline.finished
+        .then(() => {
+          anime({
+            targets: cursorRef.current,
+            opacity: [1, 0],
+            duration: 500,
+            direction: 'alternate',
+            loop: true,
+            easing: 'steps(1)',
+          });
+        })
+        .catch(revealWithoutAnimation);
+    } catch {
+      revealWithoutAnimation();
+    }
   }, []);
 
   return (

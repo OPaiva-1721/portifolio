@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-28T00:00:00.000Z",
+  "title": "Design System: Gabryel Paiva Neves — Portfólio",
+  "extensions": {
+    "colorMeta": {
+      "bg-void": { "role": "neutral", "displayName": "Vazio-Terminal", "canonical": "#0D1117", "tonalRamp": ["#0d1117", "#0d1117", "#0d1117", "#0d1117", "#53565b", "#8f9296", "#bdc0c4", "#dee0e3"] },
+      "surface-panel": { "role": "neutral", "displayName": "Painel-Superfície", "canonical": "#161B22", "tonalRamp": ["#0e1218", "#11151b", "#13181f", "#161b22", "#595d63", "#93969b", "#bfc2c6", "#dfe1e4"] },
+      "text-primary": { "role": "neutral", "displayName": "Texto-Primário", "canonical": "#C9D1D9", "tonalRamp": ["#24282e", "#585e65", "#91979f", "#c9d1d9", "#d6dce3", "#e2e6eb", "#eaeef2", "#f1f3f7"] },
+      "amber-signal": { "role": "primary", "displayName": "Âmbar-Sinal", "canonical": "#E3B341", "tonalRamp": ["#27241c", "#635228", "#a38234", "#e3b341", "#e8c779", "#edd9a9", "#f1e7ce", "#f3f0e7"] },
+      "mint-diff": { "role": "secondary", "displayName": "Menta-Diff", "canonical": "#7EE2B8", "tonalRamp": ["#1b2a2a", "#3a6557", "#5ca388", "#7ee2b8", "#a2e8cc", "#c1eedd", "#d8f2ea", "#e9f5f3"] },
+      "lilac-role": { "role": "tertiary", "displayName": "Lilás-Papel", "canonical": "#D2A8FF", "tonalRamp": ["#252333", "#5c4d74", "#977bb9", "#d2a8ff", "#ddc0fe", "#e6d4fc", "#ede4fb", "#f2effb"] },
+      "border-subtle": { "role": "neutral", "displayName": "Borda-Sutil", "canonical": "#2A3138", "tonalRamp": ["#10151b", "#191e24", "#21272e", "#2a3138", "#676c72", "#9ca0a5", "#c4c7cb", "#e1e3e7"] },
+      "ink-on-amber": { "role": "neutral", "displayName": "Tinta-sobre-Âmbar", "canonical": "#17130A" },
+      "cv-paper": { "role": "neutral", "displayName": "Papel-CV", "canonical": "#FFFFFF" },
+      "cv-ink": { "role": "neutral", "displayName": "Tinta-CV", "canonical": "#1B1F24", "tonalRamp": ["#0f1319", "#13171c", "#171b20", "#1b1f24", "#5c6064", "#95989c", "#c1c3c7", "#dfe1e5"] },
+      "cv-dim": { "role": "neutral", "displayName": "Dim-CV", "canonical": "#57606A" },
+      "cv-line": { "role": "neutral", "displayName": "Linha-CV", "canonical": "#D8DEE4" },
+      "cv-amber": { "role": "primary", "displayName": "Âmbar-CV", "canonical": "#9A6B00", "tonalRamp": ["#1e1c14", "#45350e", "#705007", "#9a6b00", "#b5954b", "#cdb98c", "#dfd5be", "#ece9e1"] },
+      "cv-mint": { "role": "secondary", "displayName": "Menta-CV", "canonical": "#0F7B56", "tonalRamp": ["#0d1e1f", "#0e3b30", "#0e5b43", "#0f7b56", "#54a087", "#90c0b2", "#bed9d3", "#deebea"] },
+      "cv-lilac": { "role": "tertiary", "displayName": "Lilás-CV", "canonical": "#6B3FA0", "tonalRamp": ["#181727", "#33234e", "#4f3177", "#6b3fa0", "#9476bb", "#b8a6d2", "#d4cbe4", "#e7e5f1"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display — Space Grotesk", "purpose": "Nome no hero e títulos de card (commit/projeto). Único lugar com peso 700." },
+      "body": { "displayName": "Body — IBM Plex Sans", "purpose": "Bio, subtítulo do hero, descrições — todo texto de conteúdo humano." },
+      "label": { "displayName": "Label/Mono — JetBrains Mono", "purpose": "Metadado de sistema: rótulos de seção, hashes, datas, tags, links de nav." }
+    },
+    "shadows": [
+      { "name": "vidro-parado", "value": "0 8px 32px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.3), inset 0 0 0 1px rgba(255,255,255,0.04)", "purpose": "Painéis que não se movem no scroll: hero, commit, contato." },
+      { "name": "vidro-em-movimento", "value": "0 8px 32px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.1)", "purpose": "Painéis que se movem/repintam: nav fixo, cards de projeto." },
+      { "name": "spotlight-hover", "value": "radial-gradient(circle at var(--mx) var(--my), rgba(255,255,255,0.22), transparent 45%)", "purpose": "Brilho especular no hover do nav e dos cards de projeto, seguindo o cursor via --mx/--my." }
+    ],
+    "motion": [
+      { "name": "lift-hover", "value": "transform 0.15s ease", "purpose": "Elevação de 2px do botão primário no hover." },
+      { "name": "drift", "value": "26s ease-in-out infinite alternate", "purpose": "Deriva lenta dos blobs decorativos de fundo (fallback antes do vídeo carregar)." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "480px", "purpose": "Abaixo disso o vídeo de fundo é pulado (poster estático só)." },
+      { "name": "md", "value": "640px", "purpose": "Abaixo disso o nav de texto vira hambúrguer." }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "CTA principal (ex: \"ver o changelog\"). Fundo âmbar, texto escuro, eleva 2px no hover.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">→ ver o changelog</a>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.7rem 1.3rem; border-radius: 6px; font-family: 'IBM Plex Sans', sans-serif; font-weight: 500; font-size: 0.95rem; background: var(--amber, #E3B341); color: #17130a; text-decoration: none; transition: transform 0.15s ease; } .ds-btn-primary:hover { transform: translateY(-2px); } .ds-btn-primary:focus-visible { outline: 2px solid var(--amber, #E3B341); outline-offset: 2px; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "CTA secundário (ex: \"baixar CV\"). Borda sutil, vira âmbar no hover/foco.",
+      "html": "<a class=\"ds-btn-ghost\" href=\"#\">baixar CV</a>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.7rem 1.3rem; border-radius: 6px; font-family: 'IBM Plex Sans', sans-serif; font-weight: 500; font-size: 0.95rem; background: transparent; border: 1px solid var(--border, #2A3138); color: var(--text, #C9D1D9); text-decoration: none; transition: border-color 0.15s ease, color 0.15s ease; } .ds-btn-ghost:hover, .ds-btn-ghost:focus-visible { border-color: var(--amber, #E3B341); color: var(--amber, #E3B341); }"
+    },
+    {
+      "name": "Stack Tag",
+      "kind": "chip",
+      "refersTo": "tag",
+      "description": "Chip mono usado para tecnologias/skills. Variante tracejada em lilás para placeholders não preenchidos.",
+      "html": "<span class=\"ds-tag\">TypeScript</span>",
+      "css": ".ds-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; background: var(--surface, #161B22); border: 1px solid var(--border, #2A3138); color: var(--mint, #7EE2B8); padding: 0.25rem 0.6rem; border-radius: 4px; display: inline-block; }"
+    },
+    {
+      "name": "Navigation Bar",
+      "kind": "nav",
+      "description": "Barra fixa em vidro-em-movimento; links mono, sublinhado âmbar no hover/ativo.",
+      "html": "<nav class=\"ds-tabbar\"><span class=\"ds-tabbar-brand\">gabryel@portfolio</span><div class=\"ds-tabbar-links\"><a href=\"#sobre\">sobre</a><a href=\"#experiencia\">experiência</a><a href=\"#projetos\">projetos</a></div></nav>",
+      "css": ".ds-tabbar { display: flex; align-items: center; justify-content: space-between; padding: 0.9rem 1.5rem; background: rgba(22,27,34,0.4); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border: 1px solid rgba(255,255,255,0.1); border-top-color: rgba(255,255,255,0.35); box-shadow: 0 8px 32px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.1); } .ds-tabbar-brand { font-family: 'JetBrains Mono', monospace; font-weight: 600; color: var(--amber, #E3B341); font-size: 0.95rem; } .ds-tabbar-links { display: flex; gap: 1.5rem; } .ds-tabbar-links a { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--text, #C9D1D9); opacity: 0.7; text-decoration: none; border-bottom: 2px solid transparent; padding-bottom: 0.2rem; transition: opacity 0.2s, color 0.2s; } .ds-tabbar-links a:hover { opacity: 1; color: var(--amber, #E3B341); border-bottom-color: var(--amber, #E3B341); }"
+    },
+    {
+      "name": "Commit Card",
+      "kind": "custom",
+      "description": "Componente-assinatura: cada emprego renderizado como um commit de Git — borda esquerda âmbar, hash em menta, cargo em lilás, responsabilidades como linhas de diff.",
+      "html": "<article class=\"ds-commit\"><div class=\"ds-commit-meta\"><span class=\"ds-hash\">a1b2c3d</span><span class=\"ds-head-tag\">HEAD</span></div><h3 class=\"ds-commit-msg\"><span class=\"ds-commit-scope\">inside-sistemas:</span> <span class=\"ds-commit-role\">Analista de Criação de Vídeo</span></h3><div class=\"ds-diff\"><p class=\"ds-diff-add\">+ Desenvolvo fluxos de automação para integração entre sistemas</p><p class=\"ds-diff-add\">+ Produzo materiais audiovisuais para treinamento</p></div></article>",
+      "css": ".ds-commit { position: relative; overflow: hidden; border-left: 3px solid var(--amber, #E3B341); border-radius: 12px; padding: 1.5rem 1.75rem; background: rgba(22,27,34,0.32); backdrop-filter: blur(28px) saturate(190%); -webkit-backdrop-filter: blur(28px) saturate(190%); border-top: 1px solid rgba(255,255,255,0.16); border-right: 1px solid rgba(255,255,255,0.16); border-bottom: 1px solid rgba(255,255,255,0.16); box-shadow: 0 8px 32px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.3); } .ds-commit-meta { display: flex; align-items: center; gap: 0.75rem; font-size: 0.78rem; margin-bottom: 0.6rem; } .ds-hash { font-family: 'JetBrains Mono', monospace; color: var(--mint, #7EE2B8); } .ds-head-tag { font-family: 'JetBrains Mono', monospace; background: rgba(227,179,65,0.15); color: var(--amber, #E3B341); border: 1px solid rgba(227,179,65,0.35); padding: 0.1rem 0.5rem; border-radius: 999px; font-size: 0.7rem; } .ds-commit-msg { font-family: 'Space Grotesk', sans-serif; font-size: 1.15rem; font-weight: 600; margin: 0 0 1rem; color: var(--text, #C9D1D9); } .ds-commit-scope { color: var(--amber, #E3B341); margin-right: 0.5rem; } .ds-commit-role { color: var(--lilac, #D2A8FF); font-weight: 500; } .ds-diff { font-family: 'JetBrains Mono', monospace; font-size: 0.88rem; background: rgba(0,0,0,0.2); border-radius: 6px; padding: 0.9rem 1rem; } .ds-diff-add { color: var(--mint, #7EE2B8); margin: 0.25rem 0; }"
+    },
+    {
+      "name": "Project Card",
+      "kind": "card",
+      "description": "Componente-assinatura: card de projeto com cabeçalho imitando uma aba de editor de código (bolinha + nome de arquivo fictício) e spotlight especular no hover.",
+      "html": "<a class=\"ds-project-card\" href=\"#\"><div class=\"ds-project-tabbar\"><span class=\"ds-project-dot\"></span><span class=\"ds-project-filename\">orcamento-v2.ts</span></div><div class=\"ds-project-body\"><h3>Orçamento.V2</h3><p>SaaS multi-tenant para gestão de orçamentos, monorepo com pnpm/Turborepo.</p><div class=\"ds-project-tags\"><span class=\"ds-tag\">NestJS</span><span class=\"ds-tag\">PostgreSQL</span></div></div></a>",
+      "css": ".ds-project-card { display: block; position: relative; overflow: hidden; border-radius: 14px; text-decoration: none; background: rgba(22,27,34,0.4); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border: 1px solid rgba(255,255,255,0.1); border-top-color: rgba(255,255,255,0.35); box-shadow: 0 8px 32px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.1); } .ds-project-tabbar { display: flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1rem; background: rgba(0,0,0,0.2); border-bottom: 1px solid var(--border, #2A3138); } .ds-project-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--border, #2A3138); display: inline-block; } .ds-project-filename { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; opacity: 0.7; color: var(--text, #C9D1D9); } .ds-project-body { padding: 1.25rem 1.25rem 1.5rem; } .ds-project-body h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.05rem; margin: 0 0 0.5rem; color: var(--text, #C9D1D9); } .ds-project-body p { font-size: 0.9rem; opacity: 0.8; margin: 0 0 1rem; color: var(--text, #C9D1D9); } .ds-project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "O Log do Turno da Noite",
+    "overview": "O portfólio lê a carreira de Gabryel como um histórico de commits visto tarde da noite: fundo quase preto (#0D1117, o mesmo tom de base do GitHub no modo escuro), um vídeo em loop ao fundo, e painéis de vidro líquido flutuando por cima como janelas de um editor de código aberto às 2h da manhã. Cada seção se anuncia como um caminho de terminal (~/sobre, ~/contato), o hero abre com $ whoami, e a experiência profissional é literalmente formatada como uma linha do tempo de commits com hash, escopo, diffs de adição e stack.\n\nA superfície é técnica mas não fria: o vidro fosco (estilo iOS/visionOS, com brilho especular que segue o cursor) suaviza o rigor de terminal, e os três acentos de cor — âmbar, menta, lilás — têm papéis fixos e legíveis como sintaxe: âmbar sinaliza atenção e ação, menta confirma como uma linha de diff adicionada, lilás identifica papéis e pessoas. Nenhuma paleta de terceiros nem gradientes decorativos soltos; cada cor tem um trabalho a fazer.\n\nNenhuma rejeição visual confirmada além da atual: a versão /#cv deliberadamente abandona o vidro e o fundo escuro por um layout de página impressa, clara e sóbria, porque o CV precisa imprimir bem e ser lido fora do contexto do site.",
+    "keyCharacteristics": [
+      "Fundo quase-preto estilo GitHub dark + vídeo em loop com scrim gradiente, nunca um fundo sólido plano.",
+      "Painéis translúcidos (vidro líquido) com blur 20–28px, saturação ~180–190%, borda superior mais clara que simula luz vinda de cima.",
+      "Três acentos de cor com papel fixo (âmbar = sinal, menta = confirmação, lilás = papel/pessoa), nunca intercambiáveis.",
+      "Rótulos, hashes e navegação sempre em monoespaçada (JetBrains Mono); títulos em Space Grotesk; corpo em IBM Plex Sans.",
+      "A metáfora de terminal/git é estrutural, não decorativa: aparece em copy, em componentes (cards de projeto como abas de editor) e em dados (experiência como commits)."
+    ],
+    "rules": [
+      { "name": "A Regra da Sintaxe Fixa", "body": "Âmbar, menta e lilás nunca trocam de papel entre componentes: âmbar é sempre sinal/ação, menta é sempre confirmação, lilás é sempre papel/pessoa. Um novo componente que precise de \"mais uma cor de destaque\" reutiliza um desses três papéis em vez de introduzir uma quarta cor.", "section": "colors" },
+      { "name": "A Regra do Mono-para-Metadado", "body": "Qualquer texto que seja metáfora de sistema/terminal — caminho, hash, data, rótulo, tag — vai em JetBrains Mono. Texto de conteúdo humano (bio, descrições) nunca usa mono.", "section": "typography" },
+      { "name": "A Regra do Vidro-Sempre-Ligado", "body": "Nenhum painel estrutural (hero, nav, commit, project-card, contato) fica sem o par blur+saturate+borda-clara-no-topo; um card \"chapado\" quebraria a leitura de vidro líquido do sistema inteiro.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do manter as três cores de acento com papel fixo: âmbar para ação/sinal, menta para confirmação, lilás para papel/pessoa (A Regra da Sintaxe Fixa).",
+      "Do usar JetBrains Mono para qualquer metadado de sistema (caminho, hash, data, rótulo, tag) e nunca para texto de conteúdo humano (A Regra do Mono-para-Metadado).",
+      "Do dar a todo painel estrutural novo o tratamento de vidro líquido (blur + saturate + borda clara no topo + sombra vidro-parado/em-movimento conforme se move) — A Regra do Vidro-Sempre-Ligado.",
+      "Do manter a metáfora terminal/git presente na copy de qualquer seção nova (~/seção, $ comando), não só no CSS.",
+      "Do preservar o layout de CV (/#cv) como uma superfície clara e separada, otimizada para impressão A4, mesmo quando a landing mudar."
+    ],
+    "donts": [
+      "Don't introduzir uma quarta cor de acento decorativa; reutilize âmbar/menta/lilás pelo papel que já carregam.",
+      "Don't usar sombra plana convencional de UI (box-shadow sólido sem blur/saturate) num painel estrutural — quebra a leitura de vidro líquido do sistema.",
+      "Don't aplicar o tema escuro/vidro à página de CV, nem o tema claro de CV à landing; são dois mundos deliberadamente separados.",
+      "Don't inventar métricas, depoimentos ou clientes na copy dos cards de projeto/commit — todo o conteúdo é factual (herdado de PRODUCT.md)."
+    ]
+  }
+}

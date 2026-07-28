@@ -37,7 +37,7 @@ export const certifications = [
 export const commits = [
   {
     id: 'inside-sistemas',
-    hash: 'Inside-Sistemas',
+    hash: 'a1f3c9d',
     tag: 'Atual',
     scope: 'inside-sistemas',
     roles: [
@@ -67,7 +67,7 @@ export const commits = [
   },
   {
     id: 'c.vale',
-    hash: 'C.vale',
+    hash: 'e7b2001',
     tag: null,
     scope: 'c.vale',
     roles: [
@@ -85,7 +85,7 @@ export const commits = [
   },
   {
     id: 'Iriedi',
-    hash: 'Iriedi',
+    hash: '4d8f61a',
     tag: null,
     scope: 'i.riedi',
     roles: [

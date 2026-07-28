@@ -5,9 +5,7 @@ export default function Sobre() {
     <section id="sobre" className="section">
       <p className="section-label">~/sobre</p>
       <div className="section-body">
-        <p className="bio">
-          <span className="placeholder-tag">{bio.placeholder}</span> {bio.example}
-        </p>
+        <p className="bio">{bio.text}</p>
         <div className="stack">
           <span className="stack-label mono dim">stack —</span>
           {bio.stack.map((item) => (
@@ -15,6 +13,14 @@ export default function Sobre() {
               className={`tag${item.startsWith('[') ? ' placeholder-tag' : ''}`}
               key={item}
             >
+              {item}
+            </span>
+          ))}
+        </div>
+        <div className="stack">
+          <span className="stack-label mono dim">soft skills —</span>
+          {bio.softSkills.map((item) => (
+            <span className="tag" key={item}>
               {item}
             </span>
           ))}

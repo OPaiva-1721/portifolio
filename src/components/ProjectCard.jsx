@@ -87,7 +87,7 @@ export default function ProjectCard({ project }) {
         <span className="project-filename mono">{project.filename}</span>
       </div>
       <div className="project-body">
-        <h3 className="placeholder-tag">{project.name}</h3>
+        <h3>{project.name}</h3>
         <p>{project.description}</p>
         <div className="tags">
           {project.stack.map((item) => (

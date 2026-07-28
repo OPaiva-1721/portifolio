@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 
 // Coloque os arquivos gerados em public/media/:
-//   bg-loop.mp4   — o vídeo (H.264, ideal < 5MB, sem áudio)
-//   bg-poster.jpg — still exibido antes do vídeo carregar / se ele falhar
+//   upscaled-video.mp4 — o vídeo (H.264, ideal < 5MB, sem áudio)
+//   bg-poster.jpg       — still exibido antes do vídeo carregar / se ele falhar
 // Se os arquivos não existirem ainda, o layer simplesmente fica invisível
 // e os blobs em .bg-blobs continuam servindo de fundo.
 //
@@ -62,7 +62,7 @@ export default function BackgroundVideo() {
         poster="/media/bg-poster.jpg"
         onLoadedData={handleLoaded}
       >
-        <source src="/media/bg-loop.mp4" type="video/mp4" />
+        <source src="/media/upscaled-video.mp4" type="video/mp4" />
       </video>
       <div className="bg-video-scrim" />
     </div>
