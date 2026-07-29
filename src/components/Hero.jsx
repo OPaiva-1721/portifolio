@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import anime from 'animejs';
+import TerminalPrompt from './TerminalPrompt.jsx';
 
 const NAME = 'Gabryel Paiva Neves';
 
@@ -11,6 +12,7 @@ export default function Hero() {
   const subtitleRef = useRef(null);
   const ctaRef = useRef(null);
   const cursorRef = useRef(null);
+  const terminalRef = useRef(null);
 
   useEffect(() => {
     const letters = lettersWrapRef.current.querySelectorAll('.letter');
@@ -27,6 +29,10 @@ export default function Hero() {
       if (ctaRef.current) {
         ctaRef.current.style.opacity = 1;
         ctaRef.current.style.transform = 'none';
+      }
+      if (terminalRef.current) {
+        terminalRef.current.style.opacity = 1;
+        terminalRef.current.style.transform = 'none';
       }
     };
 
@@ -62,6 +68,15 @@ export default function Hero() {
             duration: 600,
           },
           '-=400'
+        )
+        .add(
+          {
+            targets: terminalRef.current,
+            opacity: [0, 1],
+            translateY: [6, 0],
+            duration: 600,
+          },
+          '-=300'
         );
 
       timeline.finished
@@ -108,6 +123,9 @@ export default function Hero() {
           <a href="/#cv" className="btn btn-ghost" target="_blank" rel="noopener noreferrer">
             baixar CV
           </a>
+        </div>
+        <div className="hero-terminal" ref={terminalRef}>
+          <TerminalPrompt />
         </div>
       </div>
     </section>

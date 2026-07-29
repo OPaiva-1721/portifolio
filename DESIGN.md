@@ -102,7 +102,7 @@ Nenhuma rejeição visual confirmada além da atual: a versão `/#cv` deliberada
 - Painéis translúcidos (vidro líquido) com blur 20–28px, saturação ~180–190%, borda superior mais clara que simula luz vinda de cima.
 - Três acentos de cor com papel fixo (âmbar = sinal, menta = confirmação, lilás = papel/pessoa), nunca intercambiáveis.
 - Rótulos, hashes e navegação sempre em monoespaçada (JetBrains Mono); títulos em Space Grotesk; corpo em IBM Plex Sans.
-- A metáfora de terminal/git é estrutural, não decorativa: aparece em copy (`$ whoami`, `~/seção`), em componentes (cards de projeto como abas de editor) e em dados (experiência como "commits").
+- A metáfora de terminal/git é estrutural, não decorativa: aparece em copy (`$ whoami`, `~/seção`), em componentes (cards de projeto como abas de editor), em dados (experiência como "commits") e, no hero, num prompt de verdade que aceita comandos digitados.
 
 ## Colors
 
@@ -221,6 +221,9 @@ Cada emprego é renderizado como um commit real de Git: borda esquerda de 3px â
 ### Project Card (componente-assinatura)
 Cada projeto é um card de vidro-em-movimento com um cabeçalho que imita a aba de um editor de código: uma bolinha (`project-dot`) + nome de arquivo fictício (`barber-foundation.dart`, `orcamento-v2.ts`) em opacidade reduzida, como se o projeto fosse literalmente um arquivo aberto no editor. Abaixo, título em Space Grotesk, descrição em corpo, e as tags de stack. O spotlight especular acende no hover seguindo o cursor.
 
+### Terminal Prompt (componente-assinatura)
+Depois da intro animada do hero (`$ whoami`), um prompt `$` real e digitável aparece no mesmo painel de vidro — não é mais só a *aparência* de um terminal, é um. Aceita um vocabulário curto de comandos (`cd <seção>`, `whoami`, `cat curriculo`, `ls`, `help`, `clear`) mais alguns easter eggs não documentados no `help` (`git log`, `sudo hire gabryel`, `pwd`) — a graça de um easter egg é ele não estar no manual. Comando reconhecido devolve uma linha em menta (mesma cor de confirmação usada em todo o sistema); comando não reconhecido tenta sugestão por distância de edição e, sem match, cai num "command not found" em texto dim, nunca numa cor de erro nova. O prompt é estritamente aditivo: nav, scroll e os CTAs do hero continuam sendo a forma primária de navegar — digitar é para quem quer, nunca a única forma de usar o site.
+
 ## Do's and Don'ts
 
 ### Do:
@@ -229,6 +232,7 @@ Cada projeto é um card de vidro-em-movimento com um cabeçalho que imita a aba 
 - **Do** dar a todo painel estrutural novo o tratamento de vidro líquido (blur + saturate + borda clara no topo + sombra vidro-parado/em-movimento conforme se move) — A Regra do Vidro-Sempre-Ligado.
 - **Do** manter a metáfora terminal/git presente na copy de qualquer seção nova (`~/seção`, `$ comando`), não só no CSS.
 - **Do** preservar o layout de CV (`/#cv`) como uma superfície clara e separada, otimizada para impressão A4, mesmo quando a landing mudar.
+- **Do** manter o Terminal Prompt aditivo: qualquer comando novo precisa ter um caminho equivalente por clique/scroll — nunca a única forma de fazer algo no site.
 
 ### Don't:
 - **Don't** introduzir uma quarta cor de acento decorativa; reutilize âmbar/menta/lilás pelo papel que já carregam.

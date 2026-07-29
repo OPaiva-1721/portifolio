@@ -8,7 +8,7 @@ web
 
 ## Users
 
-Recrutadores e tech leads avaliando Gabryel Paiva Neves para vagas de desenvolvimento de software (estágio/júnior), majoritariamente no mercado brasileiro — conteúdo em pt-BR, contato via WhatsApp com DDD brasileiro, base em Toledo, Paraná.
+Público primário confirmado: **tech leads** avaliando Gabryel Paiva Neves para vagas de desenvolvimento de software (estágio/júnior) — quem lê git log profissionalmente e reconhece a metáfora do site pela forma, não só pelo conteúdo. Recrutadores generalistas são público secundário; decisões de design priorizam legibilidade técnica para o tech lead mesmo quando isso custa um pouco de clareza pro recrutador não-técnico. Majoritariamente mercado brasileiro — conteúdo em pt-BR, contato via WhatsApp com DDD brasileiro, base em Toledo, Paraná.
 
 ## Product Purpose
 
@@ -31,7 +31,6 @@ A trajetória de carreira é apresentada com a metáfora de histórico de commit
 - Contato: email, GitHub (`OPaiva-1721`), WhatsApp — com fallback de placeholder quando o valor começa com `[`.
 - Vídeo de fundo (`public/media/bg-loop.mp4`) é opcional e degrada com grace: se ausente, cai para poster estático + blobs decorativos; telas pequenas e "economia de dados" pulam o vídeo. Não é uma dependência rígida.
 - O projeto PRICE DROP aparece na home mas é filtrado do CV (`projects.filter(p => p.id !== 'price-drop')`) — decisão editorial existente a preservar.
-- Gap técnico observado (não é decisão de produto, registrar para não confundir com escolha de conteúdo): `Sobre.jsx` referencia `bio.placeholder`/`bio.example`, campos que não existem em `content.js` (que define `bio.text`) — a seção "Sobre" da home provavelmente renderiza vazia hoje.
 
 ## Brand Commitments
 
@@ -46,7 +45,7 @@ A trajetória de carreira é apresentada com a metáfora de histórico de commit
 
 ## Product Principles
 
-1. A metáfora git/terminal é o diferencial do portfólio e deve ser preservada e aprofundada, não suavizada para um formato genérico.
+1. A metáfora git/terminal é o diferencial do portfólio e deve ser preservada e aprofundada, não suavizada para um formato genérico. Confirmado com o usuário: o site é feito pra tech lead antes de tudo — quando surgir a escolha entre aprofundar a metáfora (mais autêntica, mais jargão) ou suavizar pra alcançar um público mais amplo, aprofundar vence.
 2. Todo conteúdo de experiência e projetos é fato verificável — nunca inventar métricas, depoimentos ou clientes.
 3. O objetivo primário é levar o visitante a explorar os projetos no GitHub; a apresentação deve reduzir fricção até esse clique.
 4. O site serve dois formatos do mesmo conteúdo (landing interativa e CV imprimível em `/#cv`) que devem permanecer consistentes entre si.

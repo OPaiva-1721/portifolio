@@ -396,6 +396,69 @@ body.has-bg-video .bg-blobs {
   opacity: 0;
 }
 
+.hero-terminal {
+  margin-top: 1.75rem;
+  opacity: 0;
+}
+
+.terminal-prompt {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+}
+
+.terminal-prompt-symbol {
+  color: var(--amber);
+  flex-shrink: 0;
+}
+
+.terminal-input {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: inherit;
+  caret-color: var(--amber);
+}
+
+.terminal-input::placeholder {
+  color: var(--text);
+  opacity: 0.5;
+}
+
+.terminal-history {
+  margin-top: 0.5rem;
+  max-height: 9rem;
+  overflow-y: auto;
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+}
+
+.terminal-entry {
+  margin: 0.4rem 0;
+}
+
+.terminal-entry-cmd {
+  color: var(--text);
+  margin: 0;
+}
+
+.terminal-out {
+  color: var(--mint);
+  margin: 0.15rem 0 0;
+  white-space: pre-wrap;
+}
+
+.terminal-out.is-error {
+  color: var(--text);
+  opacity: 0.6;
+}
+
 .btn {
   display: inline-flex;
   align-items: center;

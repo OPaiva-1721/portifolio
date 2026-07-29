@@ -109,7 +109,7 @@ export const projects = [
     filename: 'barber-foundation.dart',
     name: 'BarberFoundation',
     description:
-      'Desenvolvi uma plataforma de agendamento para barbearias, com aplicativo em Flutter, painel administrativo em React e backend em NestJS seguindo DDD. O foco é aumentar a retenção de clientes por meio de fidelidade, lembretes e indicações.',
+      'Desenvolvi uma plataforma de agendamento para barbearias, com aplicativo em Flutter, painel administrativo em React e backend em NestJS seguindo DDD.',
     stack: ['Flutter', 'NestJS', 'React', 'Supabase', 'Fly.io'],
     href: 'https://github.com/BarberFoundation',
   },
@@ -118,7 +118,7 @@ export const projects = [
     filename: 'orcamento-v2.ts',
     name: 'Orçamento.V2',
     description:
-      'Desenvolvi um SaaS multi-tenant para gestão de orçamentos utilizando monorepo com pnpm/Turborepo e backend em DDD. O projeto passou por uma revisão técnica completa, elevando sua qualidade de 6,0 para 7,5/10.',
+      'Desenvolvi um SaaS multi-tenant para gestão de orçamentos utilizando monorepo com pnpm/Turborepo e backend em DDD.',
     stack: ['NestJS', 'Drizzle ORM', 'PostgreSQL', 'React', 'Turborepo'],
     href: 'https://github.com/OPaiva-1721/Orcamento.V2',
   },
