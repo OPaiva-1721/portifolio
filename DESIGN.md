@@ -17,6 +17,7 @@ colors:
   cv-amber: "#9A6B00"
   cv-mint: "#0F7B56"
   cv-lilac: "#6B3FA0"
+  recess-overlay: "rgba(0,0,0,0.2)"
 typography:
   display:
     fontFamily: "Space Grotesk, sans-serif"
@@ -36,7 +37,22 @@ typography:
     fontWeight: 500
     lineHeight: 1.4
     letterSpacing: "normal"
+  scale:
+    cv-micro: "0.62rem"
+    cv-supporting: "0.68rem"
+    status-pill: "0.7rem"
+    cv-eyebrow: "0.72rem"
+    cv-contact: "0.74rem"
+    meta: "0.78rem"
+    cv-detail: "0.8rem"
+    dense-body: "0.9rem"
+    brand: "0.95rem"
+    lede: "1.05rem"
+    section-label: "1.1rem"
+    subtitle: "1.15rem"
+    cv-name: "1.5rem"
 rounded:
+  hairline: "2px"
   chip: "4px"
   control: "6px"
   panel-sm: "10px"
@@ -107,6 +123,7 @@ A paleta principal replica o modo escuro do GitHub como base neutra e soma três
 - **Texto-Primário** (`#C9D1D9`): cor de todo o corpo de texto sobre fundo escuro; nunca branco puro, para não vibrar contra o vídeo.
 - **Borda-Sutil** (`#2A3138`): divisórias e bordas de baixo contraste (botão ghost, tags, divisor do menu mobile).
 - **Tinta-sobre-Âmbar** (`#17130A`): único texto escuro do sistema, usado apenas dentro do botão primário âmbar para manter contraste AA.
+- **Recesso-Overlay** (`rgba(0,0,0,0.2)`): preto translúcido usado só pra afundar visualmente uma sub-área dentro de um painel de vidro já translúcido (fundo do bloco `.diff`, cabeçalho `.project-tabbar`) — não é uma cor de marca, é um recurso físico de profundidade.
 
 ### Print / CV (secundário, escopo `.cv-page`)
 - **Papel-CV** (`#FFFFFF`) / **Tinta-CV** (`#1B1F24`): fundo e texto base da versão imprimível, invertendo a landing (clara em vez de escura) porque a página é feita para impressão, não para tela.
@@ -125,11 +142,27 @@ A paleta principal replica o modo escuro do GitHub como base neutra e soma três
 **Character:** Space Grotesk dá ao nome e aos títulos de commit um peso geométrico e levemente técnico sem virar display-font decorativa; IBM Plex Sans carrega o corpo com neutralidade legível; JetBrains Mono assina cada elemento que deveria "parecer código" — rótulos, caminhos, hashes, tags.
 
 ### Hierarchy
-- **Display** (700, `clamp(2.2rem, 7vw, 4.5rem)`, altura de linha 1.1): nome no hero (`hero-name`) e títulos de card de projeto/commit — os únicos lugares em Space Grotesk pesado.
-- **Headline** (600, 1.15rem): título de cada commit de experiência (`commit-msg`) e cabeçalho do CV.
-- **Title** (600, ~1.05rem): título de card de projeto.
+- **Display** (700, `clamp(2.2rem, 7vw, 4.5rem)`, altura de linha 1.1): nome no hero (`hero-name`), os únicos lugares em Space Grotesk pesado e fluido. O cabeçalho do CV (`cv-head h1`) reusa o mesmo peso/família num degrau fixo menor (`cv-name`, 1.5rem) — impressão não tem viewport pra clampar.
+- **Headline** (600, 1.15rem, Space Grotesk): título de cada commit de experiência (`commit-msg`).
+- **Title** (600, ~1.05rem): rótulo `~/seção` (`section-label`, 1.1rem — o único degrau entre Title e Headline) e título de card de projeto (`project-body h3`, `.bio`).
 - **Body** (400, 1–1.15rem, IBM Plex Sans): bio, subtítulo do hero, descrições de projeto; sem limite de linha fixo declarado, mas os contêineres já restringem a ~560–700px.
 - **Label** (500–600, 0.7–0.95rem, JetBrains Mono, caixa normal exceto CV): labels de seção (`~/sobre`), links de nav, hashes, tags de stack, datas.
+
+### Scale Steps (metadado denso)
+
+Abaixo do nível "Label" existe uma escala mais fina de tamanhos, real e reutilizada, para texto de suporte — sobretudo na densidade maior do CV impresso. Nomes em `typography.scale` no frontmatter:
+
+| Nome | Valor | Onde aparece |
+|---|---|---|
+| `brand` | 0.95rem | `tabbar-brand`, `hero-eyebrow`, `.btn` |
+| `dense-body` | 0.9rem | menu mobile, `project-body p`, corpo do CV (`cv-sheet`) |
+| `cv-detail` | 0.8rem | botões/links do CV, instituição, footer, `@media print` |
+| `meta` | 0.78rem | `commit-meta`, `role-date`, `.tag`, `project-filename`, escopo/cargo/projeto no CV |
+| `cv-contact` | 0.74rem | links de contato do CV |
+| `cv-eyebrow` | 0.72rem | títulos de seção do CV (uppercase, tracked) |
+| `status-pill` | 0.7rem | texto dentro de `head-tag`/`root-tag` |
+| `cv-supporting` | 0.68rem | tags, listas e parágrafos de suporte do CV |
+| `cv-micro` | 0.62rem | datas e links de projeto no CV — menor tamanho do sistema |
 
 ### Named Rules
 **A Regra do Mono-para-Metadado.** Qualquer texto que seja metáfora de sistema/terminal — caminho, hash, data, rótulo, tag — vai em JetBrains Mono. Texto de conteúdo humano (bio, descrições) nunca usa mono.
@@ -154,7 +187,7 @@ O sistema é construído em vidro líquido, não em sombras planas de UI convenc
 
 ## Shapes
 
-Raios crescem com o tamanho/prominência do painel, não seguem uma escala matemática única: chips e tags usam 4px (`chip`), controles/botões usam 6px (`control`), o item de contato usa 10px, o card de commit 12px, o card de projeto 14px e o painel do hero 16px (`panel-sm` → `panel-xl`). Tags de status (`head-tag`, `root-tag`) usam `border-radius: 999px` (pílula completa). O card de commit tem uma assinatura própria: borda esquerda sólida de 3px em âmbar, como um marcador de linha alterada num diff — nenhum outro componente usa borda lateral colorida.
+Raios crescem com o tamanho/prominência do painel, não seguem uma escala matemática única: chips e tags usam 4px (`chip`), controles/botões usam 6px (`control`), o item de contato usa 10px, o card de commit 12px, o card de projeto 14px e o painel do hero 16px (`panel-sm` → `panel-xl`). Tags de status (`head-tag`, `root-tag`) usam `border-radius: 999px` (pílula completa). As três barras do ícone de hambúrguer mobile usam um raio próprio, quase imperceptível (`hairline`, 2px) — só pra tirar a aresta viva do retângulo, não uma superfície com identidade de vidro. O card de commit tem uma assinatura própria, já intencional e registrada aqui: borda esquerda sólida de 3px em âmbar, como um marcador de linha alterada num diff — nenhum outro componente usa borda lateral colorida.
 
 ## Components
 

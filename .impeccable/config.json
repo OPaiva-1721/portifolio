@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": [
+          "src/index.css"
+        ],
+        "createdAt": "2026-07-29T13:03:40.611Z",
+        "reason": "User confirmed the .commit border-left is intentional: it's the site's single git-diff-marker signature, documented in DESIGN.md, used nowhere else"
+      }
+    ]
+  }
+}
