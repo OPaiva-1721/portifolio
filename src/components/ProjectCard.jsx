@@ -4,6 +4,11 @@ import anime from 'animejs';
 const prefersReducedMotion = () =>
   window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+// lê o valor real do token no CSS em vez de duplicar o hex aqui — o anime.js
+// não anima custom properties diretamente, então resolve pro literal atual.
+const cssVar = (name) =>
+  getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+
 // mesmo brilho de vidro do CSS (.project-card) — precisa ser repetido aqui
 // porque a animação de hover escreve boxShadow inline, e um inline style
 // sempre vence a regra do CSS.
@@ -43,7 +48,7 @@ export default function ProjectCard({ project }) {
     });
     anime({
       targets: dotRef.current,
-      backgroundColor: '#7EE2B8',
+      backgroundColor: cssVar('--mint'),
       scale: 1.2,
       duration: 250,
       easing: 'easeOutQuad',
@@ -61,7 +66,7 @@ export default function ProjectCard({ project }) {
     });
     anime({
       targets: dotRef.current,
-      backgroundColor: '#2A3138',
+      backgroundColor: cssVar('--border'),
       scale: 1,
       duration: 250,
       easing: 'easeOutQuad',

@@ -405,8 +405,10 @@ body.has-bg-video .bg-blobs {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  padding: 0.85rem 0;
   font-family: var(--font-mono);
   font-size: 0.95rem;
+  cursor: text;
 }
 
 .terminal-prompt-symbol {
@@ -968,6 +970,31 @@ body.has-bg-video .bg-blobs {
   font-family: var(--font-mono);
   font-size: 0.68rem;
   color: var(--cv-dim);
+}
+
+/* abaixo de 640px a sidebar de 34% fica apertada demais pro conteúdo
+   (email, tags, datas) — empilha em coluna única, como o resto do site já
+   faz no nav a partir do mesmo breakpoint */
+@media (max-width: 640px) {
+  .cv-toolbar {
+    padding: 1rem 1.25rem 0;
+  }
+
+  .cv-sheet {
+    padding: 1.25rem 1.25rem 1.5rem;
+  }
+
+  .cv-body {
+    flex-direction: column;
+  }
+
+  .cv-sidebar {
+    width: 100%;
+    padding-right: 0;
+    padding-bottom: 1.25rem;
+    border-right: none;
+    border-bottom: 1px solid var(--cv-line);
+  }
 }
 
 @media print {

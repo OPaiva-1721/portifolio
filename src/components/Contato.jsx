@@ -42,7 +42,7 @@ function ContatoLink({ href, icon, label }) {
 export default function Contato() {
   return (
     <section id="contato" className="section section-contato">
-      <p className="section-label">~/contato</p>
+      <h2 className="section-label">~/contato</h2>
       <div className="contato-links">
         <a href={`mailto:${contact.email}`} className="contato-item">
           <span className="contato-icon"><EmailIcon /></span>

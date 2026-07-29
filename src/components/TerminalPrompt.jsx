@@ -140,6 +140,7 @@ export default function TerminalPrompt() {
   const [value, setValue] = useState('');
   const [history, setHistory] = useState([]);
   const historyRef = useRef(null);
+  const inputRef = useRef(null);
 
   useEffect(() => {
     if (historyRef.current) {
@@ -170,11 +171,16 @@ export default function TerminalPrompt() {
 
   return (
     <div className="terminal">
-      <form className="terminal-prompt" onSubmit={handleSubmit}>
+      <form
+        className="terminal-prompt"
+        onSubmit={handleSubmit}
+        onClick={() => inputRef.current?.focus()}
+      >
         <span className="terminal-prompt-symbol" aria-hidden="true">
           $
         </span>
         <input
+          ref={inputRef}
           className="terminal-input"
           type="text"
           value={value}

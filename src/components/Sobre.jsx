@@ -3,7 +3,7 @@ import { bio } from '../data/content.js';
 export default function Sobre() {
   return (
     <section id="sobre" className="section">
-      <p className="section-label">~/sobre</p>
+      <h2 className="section-label">~/sobre</h2>
       <div className="section-body">
         <p className="bio">{bio.text}</p>
         <div className="stack">

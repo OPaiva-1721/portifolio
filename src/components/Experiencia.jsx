@@ -4,7 +4,7 @@ import Commit from './Commit.jsx';
 export default function Experiencia() {
   return (
     <section id="experiencia" className="section">
-      <p className="section-label">~/experiencia</p>
+      <h2 className="section-label">~/experiencia</h2>
       <p className="section-hint mono dim">
         git log --reverse=false --author="Gabryel Paiva Neves"
       </p>
