@@ -43,15 +43,15 @@ export const commits = [
     roles: [
       {
         date: 'Jul de 2026 — o momento · 1 mês · Toledo, Paraná · Tempo integral',
-        role: 'Analista de Criação de Vídeo',
+        role: 'Analista de Criação de Vídeo · Automação de Processos',
         additions: [
-          'Desenvolvo fluxos de automação para integração entre sistemas e bancos de dados',
+          'Desenvolvo automações de integração entre sistemas internos usando n8n',
+          'Automatizo sincronização de dados entre bancos, cobrindo desde consistência de registros até tratamento de falhas',
+          'Automatizo processos operacionais, como o onboarding de novos colaboradores, reduzindo etapas manuais',
           'Roteirizo, produzo slides e utilizo TTS para os conteúdos da Universidade Inside',
-          'Desenvolvo materiais audiovisuais para treinamento e capacitação de usuários',
-          'Produzo conteúdos que facilitam o aprendizado e o uso dos sistemas da empresa',
         ],
         removals: [],
-        stack: ['Automação (n8n)', 'Roteirização', 'Produção de Vídeo', 'TTS'],
+        stack: ['n8n', 'Automação de Processos', 'SQL Server', 'FastAPI', 'Roteirização', 'TTS'],
       },
       {
         date: 'Fev de 2026 — jun de 2026 · 5 meses · Toledo, Paraná · Estágio',
