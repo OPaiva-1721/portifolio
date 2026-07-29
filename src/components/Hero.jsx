@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import anime from 'animejs';
 import TerminalPrompt from './TerminalPrompt.jsx';
+import { bio } from '../data/content.js';
 
 const NAME = 'Gabryel Paiva Neves';
 
@@ -13,6 +14,7 @@ export default function Hero() {
   const ctaRef = useRef(null);
   const cursorRef = useRef(null);
   const terminalRef = useRef(null);
+  const terminalPromptRef = useRef(null);
 
   useEffect(() => {
     const letters = lettersWrapRef.current.querySelectorAll('.letter');
@@ -89,6 +91,8 @@ export default function Hero() {
             loop: true,
             easing: 'steps(1)',
           });
+          // dica única de que o prompt abaixo é digitável de verdade
+          terminalPromptRef.current?.playIntroHint();
         })
         .catch(revealWithoutAnimation);
     } catch {
@@ -113,8 +117,7 @@ export default function Hero() {
           </span>
         </h1>
         <p className="hero-subtitle" ref={subtitleRef}>
-          Desenvolvedor de Software — leio problemas reais como diffs e entrego mudanças
-          versionadas.
+          {bio.tagline}
         </p>
         <div className="hero-cta" ref={ctaRef}>
           <a href="#experiencia" className="btn btn-primary">
@@ -125,7 +128,7 @@ export default function Hero() {
           </a>
         </div>
         <div className="hero-terminal" ref={terminalRef}>
-          <TerminalPrompt />
+          <TerminalPrompt ref={terminalPromptRef} />
         </div>
       </div>
     </section>

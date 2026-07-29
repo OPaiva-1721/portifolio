@@ -1,10 +1,11 @@
-import { useEffect, useRef, useState } from 'react';
+import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react';
 import { bio } from '../data/content.js';
 
 const prefersReducedMotion = () =>
   window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 const SECTION_IDS = ['sobre', 'experiencia', 'projetos', 'contato'];
+const DEFAULT_PLACEHOLDER = "digite 'help' pra ver os comandos";
 
 const HELP_LINES = [
   'cd <sobre|experiencia|projetos|contato> — navega até a seção',
@@ -59,7 +60,7 @@ function runCommand(raw) {
 
   switch (cmd) {
     case 'whoami':
-      return { lines: [bio.text], variant: 'ok' };
+      return { lines: [bio.tagline], variant: 'ok' };
     case 'ls':
       return { lines: [`${SECTION_IDS.join('  ')}  curriculo.pdf`], variant: 'ok' };
     case 'help':
@@ -76,10 +77,12 @@ function runCommand(raw) {
       }
       const suggestion = target ? closestMatch(target, SECTION_IDS) : null;
       if (suggestion) {
-        scrollToSection(suggestion);
+        // não navega sozinho numa suposição — deixa o comando pronto pra
+        // confirmar com um Enter a mais, em vez de agir por conta própria.
         return {
-          lines: [`cd: '${target}' não existe — indo para '${suggestion}'`],
-          variant: 'ok',
+          lines: [`cd: '${target}' não existe — pressione Enter de novo pra ir em '${suggestion}'`],
+          variant: 'error',
+          prefill: `cd ${suggestion}`,
         };
       }
       return { lines: [`cd: uso: cd <${SECTION_IDS.join('|')}>`], variant: 'error' };
@@ -136,11 +139,16 @@ function runCommand(raw) {
   }
 }
 
-export default function TerminalPrompt() {
+const TerminalPrompt = forwardRef(function TerminalPrompt(_props, ref) {
   const [value, setValue] = useState('');
   const [history, setHistory] = useState([]);
+  const [commandLog, setCommandLog] = useState([]);
+  const [historyIndex, setHistoryIndex] = useState(null);
+  const [placeholder, setPlaceholder] = useState(DEFAULT_PLACEHOLDER);
   const historyRef = useRef(null);
   const inputRef = useRef(null);
+  const hintPlayedRef = useRef(false);
+  const hintTimersRef = useRef([]);
 
   useEffect(() => {
     if (historyRef.current) {
@@ -148,21 +156,91 @@ export default function TerminalPrompt() {
     }
   }, [history]);
 
+  // limpa timers de digitação fantasma se o componente desmontar no meio
+  useEffect(() => () => hintTimersRef.current.forEach(clearTimeout), []);
+
+  // dica única (não interativa) de que o prompt é digitável de verdade:
+  // "digita" a palavra help no placeholder e apaga em seguida. Chamada pelo
+  // Hero quando a animação de entrada termina; nunca roda com reduced-motion.
+  useImperativeHandle(ref, () => ({
+    playIntroHint() {
+      if (hintPlayedRef.current || prefersReducedMotion()) return;
+      hintPlayedRef.current = true;
+
+      const word = 'help';
+      const typeDelay = 90;
+      const eraseDelay = 60;
+      const holdDelay = 700;
+
+      for (let i = 1; i <= word.length; i++) {
+        hintTimersRef.current.push(
+          setTimeout(() => setPlaceholder(word.slice(0, i)), typeDelay * i)
+        );
+      }
+
+      const eraseStart = typeDelay * word.length + holdDelay;
+      for (let i = word.length - 1; i >= 0; i--) {
+        hintTimersRef.current.push(
+          setTimeout(
+            () => setPlaceholder(word.slice(0, i)),
+            eraseStart + eraseDelay * (word.length - i)
+          )
+        );
+      }
+      hintTimersRef.current.push(
+        setTimeout(
+          () => setPlaceholder(DEFAULT_PLACEHOLDER),
+          eraseStart + eraseDelay * word.length + 400
+        )
+      );
+    },
+  }));
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'ArrowUp') {
+      if (commandLog.length === 0) return;
+      e.preventDefault();
+      const nextIndex = historyIndex === null ? commandLog.length - 1 : Math.max(0, historyIndex - 1);
+      setHistoryIndex(nextIndex);
+      setValue(commandLog[nextIndex]);
+    } else if (e.key === 'ArrowDown') {
+      if (historyIndex === null) return;
+      e.preventDefault();
+      const nextIndex = historyIndex + 1;
+      if (nextIndex >= commandLog.length) {
+        setHistoryIndex(null);
+        setValue('');
+      } else {
+        setHistoryIndex(nextIndex);
+        setValue(commandLog[nextIndex]);
+      }
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const result = runCommand(value);
-    const submitted = value;
-    setValue('');
+    const submitted = value.trim();
+    setHistoryIndex(null);
+
     if (!result) return;
+
+    if (submitted) {
+      setCommandLog((prev) => [...prev, submitted]);
+    }
+
     if (result.clear) {
+      setValue('');
       setHistory([]);
       return;
     }
+
+    setValue(result.prefill ?? '');
     setHistory((prev) => [
       ...prev,
       {
         id: `${Date.now()}-${prev.length}`,
-        command: submitted.trim(),
+        command: submitted,
         lines: result.lines,
         variant: result.variant,
       },
@@ -185,12 +263,13 @@ export default function TerminalPrompt() {
           type="text"
           value={value}
           onChange={(e) => setValue(e.target.value)}
-          placeholder="digite 'help' pra ver os comandos"
+          onKeyDown={handleKeyDown}
+          placeholder={placeholder}
           autoComplete="off"
           autoCapitalize="off"
           autoCorrect="off"
           spellCheck="false"
-          aria-label="Terminal de comando opcional — digite um comando e pressione Enter"
+          aria-label="Terminal de comando opcional — digite um comando e pressione Enter; setas pra cima/baixo repetem comandos anteriores"
         />
       </form>
       <div className="terminal-history" ref={historyRef} aria-live="polite">
@@ -215,4 +294,6 @@ export default function TerminalPrompt() {
       </div>
     </div>
   );
-}
+});
+
+export default TerminalPrompt;

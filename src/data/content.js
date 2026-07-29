@@ -1,6 +1,7 @@
 // Centraliza todo o conteúdo editável do site.
 
 export const bio = {
+  tagline: 'Desenvolvedor de software com foco em automação — transformo processos manuais em fluxos que rodam sozinhos.',
   text: `Sou estudante de Engenharia de Software no Biopark e desenvolvedor de automações, um profissional dedicado, proativo e movido por desafios. Tenho experiência no desenvolvimento de automações, suporte técnico, desenvolvimento de software e criação de conteúdo. Aprendo de forma autodidata, trabalho bem em equipe e utilizo o raciocínio lógico para criar soluções e otimizar processos.`,
   stack: [
     'TypeScript',
