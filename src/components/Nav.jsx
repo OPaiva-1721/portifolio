@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const prefersReducedMotion = () =>
   window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -14,6 +14,25 @@ export default function Nav() {
   const navRef = useRef(null);
   const rafRef = useRef(null);
   const [open, setOpen] = useState(false);
+
+  // fecha no Esc ou ao clicar/tocar fora do menu mobile
+  useEffect(() => {
+    if (!open) return;
+
+    const onKeyDown = (e) => {
+      if (e.key === 'Escape') setOpen(false);
+    };
+    const onPointerDown = (e) => {
+      if (navRef.current && !navRef.current.contains(e.target)) setOpen(false);
+    };
+
+    document.addEventListener('keydown', onKeyDown);
+    document.addEventListener('pointerdown', onPointerDown);
+    return () => {
+      document.removeEventListener('keydown', onKeyDown);
+      document.removeEventListener('pointerdown', onPointerDown);
+    };
+  }, [open]);
 
   // spotlight especular que segue o mouse (--mx/--my lidos pelo ::before no CSS)
   const handleMouseMove = (e) => {
@@ -51,7 +70,9 @@ export default function Nav() {
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
         >
-          <span className={`tabbar-toggle-bar${open ? ' open' : ''}`} />
+          <span className="tabbar-toggle-icon">
+            <span className={`tabbar-toggle-bar${open ? ' open' : ''}`} />
+          </span>
         </button>
       </div>
 
