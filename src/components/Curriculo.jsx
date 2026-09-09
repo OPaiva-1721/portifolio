@@ -118,7 +118,7 @@ export default function Curriculo() {
               <h2>Projetos</h2>
               <div className="cv-projects">
                 {projects
-                  .filter((project) => project.id !== 'price-drop')
+                  .filter((project) => project.showInCv)
                   .map((project) => (
                   <div className="cv-project" key={project.id}>
                     <h3>{project.name}</h3>

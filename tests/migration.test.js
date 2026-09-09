@@ -68,4 +68,11 @@ describe('conteúdo do portfólio', () => {
       whatsapp: 'https://wa.me/554498727549',
     });
   });
+
+  it('marca no dado quais projetos entram no currículo', () => {
+    const byId = Object.fromEntries(projects.map((p) => [p.id, p]));
+    expect(byId['barberfoundation'].showInCv).toBe(true);
+    expect(byId['orcamento-v2'].showInCv).toBe(true);
+    expect(byId['price-drop'].showInCv).toBe(false);
+  });
 });
