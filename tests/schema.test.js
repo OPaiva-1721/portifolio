@@ -7,6 +7,7 @@ import {
   emptyProject,
   emptyCommit,
   emptyRole,
+  emptyEducation,
   randomCommitHash,
 } from '../src/data/schema.js';
 
@@ -132,6 +133,18 @@ describe('itens novos', () => {
     cargo.role = 'Desenvolvedor';
     novo.roles = [cargo];
     doc.commits.unshift(novo);
+    expect(validateContent(doc)).toEqual({ ok: true });
+  });
+
+  it('cria formação válida dentro do documento', () => {
+    const doc = clone();
+    const nova = emptyEducation();
+    nova.id = 'nova-formacao';
+    nova.degree = 'Ciência da Computação';
+    nova.institution = 'Universidade Nova';
+    nova.period = '2028 — previsão 2032';
+    nova.description = 'Descrição';
+    doc.education.push(nova);
     expect(validateContent(doc)).toEqual({ ok: true });
   });
 });
