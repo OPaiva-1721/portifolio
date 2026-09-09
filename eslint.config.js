@@ -4,7 +4,7 @@ import reactRefresh from 'eslint-plugin-react-refresh';
 import globals from 'globals';
 
 export default [
-  { ignores: ['dist'] },
+  { ignores: ['dist', '.claude'] },
   {
     files: ['**/*.{js,jsx}'],
     languageOptions: {
@@ -23,6 +23,14 @@ export default [
       ...js.configs.recommended.rules,
       ...reactHooks.configs.recommended.rules,
       'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+    },
+  },
+  {
+    files: ['api/**/*.js', 'scripts/**/*.js', 'tests/**/*.js', 'vitest.config.js'],
+    languageOptions: {
+      ecmaVersion: 2022,
+      globals: globals.node,
+      parserOptions: { sourceType: 'module' },
     },
   },
 ];
