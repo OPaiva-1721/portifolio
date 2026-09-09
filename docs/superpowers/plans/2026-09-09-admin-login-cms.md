@@ -13,7 +13,7 @@
 ## Global Constraints
 
 - **Zero dependências de runtime novas.** Nada entra em `dependencies` do `package.json`. Apenas `vitest` entra em `devDependencies`.
-- **Nenhum componente público muda de import.** `Sobre.jsx`, `Experiencia.jsx`, `Projetos.jsx`, `Contato.jsx`, `Commit.jsx`, `ProjectCard.jsx` seguem importando de `src/data/content.js` exatamente como hoje. A única exceção autorizada é `Curriculo.jsx` (Task 3).
+- **Nenhum componente público muda de import.** `Sobre.jsx`, `Experiencia.jsx`, `Projetos.jsx`, `Contato.jsx`, `Commit.jsx`, `ProjectCard.jsx` seguem importando de `src/data/content.js` exatamente como hoje. Três arquivos existentes têm alteração autorizada, e só eles: `Curriculo.jsx` (Task 3, troca do filtro fixo por `showInCv`), `App.jsx` (Task 10, rota `#admin`) e `ErrorBoundary.jsx` (Task 10, prop `fallback` opcional que preserva o comportamento atual quando ausente).
 - **Idioma:** todo texto de interface e toda mensagem de erro em pt-BR.
 - **Identidade visual:** o painel usa os tokens já definidos em `src/index.css` — `--bg`, `--surface`, `--text`, `--amber`, `--mint`, `--lilac`, `--border`, `--font-mono`, `--font-body`, `--font-display`. Nenhuma cor nova em hexadecimal fora desses tokens.
 - **Limite de payload:** `256 * 1024` bytes.
@@ -2377,7 +2377,7 @@ git commit -m "feat: adiciona rota /#admin com tela de login"
   - `Field({ label, value, onChange, multiline, hint, type })`
   - `StringListEditor({ label, items, onChange, placeholder })`
   - `ListEditor({ items, onChange, createItem, title, addLabel, children })` — `children` é função `(item, update, index) => JSX`
-  - `useDraft(server)` → `{ draft, setSection, changed, discard, clearStored }`
+  - `useDraft(server)` → `{ draft, setSection, changed, discard }`
   - Cada seção: `({ value, onChange })`
 
 - [ ] **Step 1: Campo rotulado**
@@ -2655,7 +2655,7 @@ export default function useDraft(server) {
     setDraft(structuredClone(server.content));
   }, [server]);
 
-  return { draft, setSection, changed, discard, clearStored };
+  return { draft, setSection, changed, discard };
 }
 ```
 
