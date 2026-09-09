@@ -3792,7 +3792,7 @@ Percorra e confirme cada item:
 3. Editar a tagline em `~/bio` acende o ponto de modificado ao lado de `~/bio` e faz surgir a barra inferior.
 4. Recarregar a página mantém a alteração (rascunho no `localStorage`) e o painel continua autenticado.
 5. Em `~/experiência`, adicionar um emprego cria um card com hash de 7 caracteres; adicionar um cargo dentro dele funciona; as setas reordenam; o ✕ pede confirmação.
-6. Em `~/projetos`, a caixa "aparece no currículo" alterna.
+6. Em `~/projetos`, a caixa "aparece no currículo" alterna. Confirme o efeito de ponta a ponta, que nenhum teste automatizado cobre: abra `/#cv` e verifique que aparecem exatamente BarberFoundation e Orçamento.V2, sem o PRICE DROP. Depois desmarque a caixa de um projeto visível, publique, e confirme que ele sumiu do `/#cv` — é a prova de que o filtro lê o campo na polaridade certa.
 7. Deixar um campo obrigatório vazio e tentar publicar mostra a mensagem de validação nomeando o campo, sem publicar.
 8. Com os campos válidos, "commit & publicar" abre o diff com linhas verdes e vermelhas e a mensagem `content: atualiza ...`.
 9. Confirmar publica: a barra mostra o hash do commit e o link. Abra o link e veja o commit na branch `admin-test`.
