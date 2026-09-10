@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { lazy, Suspense, useEffect, useState } from 'react';
 import Nav from './components/Nav.jsx';
 import BackgroundVideo from './components/BackgroundVideo.jsx';
 import Hero from './components/Hero.jsx';
@@ -10,17 +10,42 @@ import Footer from './components/Footer.jsx';
 import Curriculo from './components/Curriculo.jsx';
 import ErrorBoundary from './components/ErrorBoundary.jsx';
 
+const AdminApp = lazy(() => import('./admin/AdminApp.jsx'));
+
+function routeFromHash() {
+  const { hash } = window.location;
+  if (hash === '#cv') return 'cv';
+  if (hash === '#admin') return 'admin';
+  return 'site';
+}
+
 export default function App() {
-  const [isCv, setIsCv] = useState(() => window.location.hash === '#cv');
+  const [route, setRoute] = useState(routeFromHash);
 
   useEffect(() => {
-    const onHashChange = () => setIsCv(window.location.hash === '#cv');
+    const onHashChange = () => setRoute(routeFromHash());
     window.addEventListener('hashchange', onHashChange);
     return () => window.removeEventListener('hashchange', onHashChange);
   }, []);
 
-  if (isCv) {
+  if (route === 'cv') {
     return <Curriculo />;
+  }
+
+  if (route === 'admin') {
+    return (
+      <ErrorBoundary
+        fallback={
+          <div className="admin-loading mono">
+            $ status: o painel quebrou ao renderizar. Recarregue a página — seu rascunho está salvo.
+          </div>
+        }
+      >
+        <Suspense fallback={<div className="admin-loading mono">carregando painel…</div>}>
+          <AdminApp />
+        </Suspense>
+      </ErrorBoundary>
+    );
   }
 
   return (
