@@ -5,7 +5,9 @@ import useDraft from './useDraft.js';
 import BioSection from './sections/BioSection.jsx';
 import EducationSection from './sections/EducationSection.jsx';
 import CertificationsSection from './sections/CertificationsSection.jsx';
+import CommitsSection from './sections/CommitsSection.jsx';
 import ContactSection from './sections/ContactSection.jsx';
+import ProjectsSection from './sections/ProjectsSection.jsx';
 import { SECTION_KEYS, SECTION_LABELS } from '../data/schema.js';
 import './admin.css';
 
@@ -85,10 +87,16 @@ export default function AdminApp() {
         />
       );
     }
+    if (active === 'commits') {
+      return <CommitsSection value={draft.commits} onChange={(next) => setSection('commits', next)} />;
+    }
+    if (active === 'projects') {
+      return <ProjectsSection value={draft.projects} onChange={(next) => setSection('projects', next)} />;
+    }
     if (active === 'contact') {
       return <ContactSection value={draft.contact} onChange={(next) => setSection('contact', next)} />;
     }
-    return <p className="mono dim">Esta seção entra na próxima etapa.</p>;
+    return null;
   }
 
   return (
