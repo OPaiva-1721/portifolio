@@ -22,6 +22,13 @@
   },
   "education": [
     {
+      "id": "biopark1",
+      "degree": "Analise e desenvolvimento de software",
+      "institution": "Faculdade Biopark",
+      "period": "2023 — concluído 06/2026 · Toledo, Paraná",
+      "description": "Um dos projetos que mais gostei de desenvolver foi o Banco de Questões Donaduzzi, um sistema completo em Flutter e Firebase para gerenciamento de provas, banco de questões, montagem personalizada de avaliações e correção automática, utilizando arquitetura em camadas e padrões como Facade, Repository e Singleton."
+    },
+    {
       "id": "biopark",
       "degree": "Engenharia de Software",
       "institution": "Faculdade Biopark",
@@ -32,7 +39,7 @@
   "certifications": [
     "Google Cloud Cybersecurity",
     "Google Cloud IA Generativa",
-    "Inglês técnico",
+    "Inglês Avançado",
     "Pacote Office"
   ],
   "commits": [
@@ -48,7 +55,7 @@
           "additions": [
             "Desenvolvo e implemento soluções de software voltadas à automação de processos, integrando sistemas, APIs e bancos de dados para reduzir atividades manuais, otimizar fluxos e aumentar a eficiência operacional.",
             "Aplico Inteligência Artificial na criação de soluções práticas para o negócio. Como a transformação automática de conteúdos de vídeo em questionários e avaliações, reduzindo significativamente a intervenção manual.",
-            "Automatizo processos operacionais, como o onboarding de novos colaboradores, reduzindo etapas manuais"
+            "Atuo na integração e evolução de sistemas existentes, conectando diferentes tecnologias e estruturando soluções que tornam proces- sos mais escaláveis, confiáveis e eficientes."
           ],
           "removals": [],
           "stack": [
