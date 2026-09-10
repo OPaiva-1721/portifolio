@@ -1,6 +1,12 @@
 import { useCallback, useEffect, useState } from 'react';
 import { ApiError, fetchContent, login, logout } from './api.js';
 import LoginScreen from './LoginScreen.jsx';
+import useDraft from './useDraft.js';
+import BioSection from './sections/BioSection.jsx';
+import EducationSection from './sections/EducationSection.jsx';
+import CertificationsSection from './sections/CertificationsSection.jsx';
+import ContactSection from './sections/ContactSection.jsx';
+import { SECTION_KEYS, SECTION_LABELS } from '../data/schema.js';
 import './admin.css';
 
 export default function AdminApp() {
@@ -9,6 +15,8 @@ export default function AdminApp() {
   const [busy, setBusy] = useState(false);
   const [loadError, setLoadError] = useState(null);
   const [server, setServer] = useState(null);
+  const { draft, setSection, changed, discard } = useDraft(server);
+  const [active, setActive] = useState('bio');
 
   const load = useCallback(async () => {
     try {
@@ -62,28 +70,65 @@ export default function AdminApp() {
     return <LoginScreen onSubmit={handleLogin} error={loginError} busy={busy} />;
   }
 
+  function renderSection() {
+    if (active === 'bio') {
+      return <BioSection value={draft.bio} onChange={(next) => setSection('bio', next)} />;
+    }
+    if (active === 'education') {
+      return <EducationSection value={draft.education} onChange={(next) => setSection('education', next)} />;
+    }
+    if (active === 'certifications') {
+      return (
+        <CertificationsSection
+          value={draft.certifications}
+          onChange={(next) => setSection('certifications', next)}
+        />
+      );
+    }
+    if (active === 'contact') {
+      return <ContactSection value={draft.contact} onChange={(next) => setSection('contact', next)} />;
+    }
+    return <p className="mono dim">Esta seção entra na próxima etapa.</p>;
+  }
+
   return (
     <div className="admin">
       <header className="admin-header">
         <span className="mono admin-brand">~/admin</span>
+        <button className="admin-button" type="button" onClick={discard} disabled={changed.length === 0}>
+          descartar
+        </button>
         <button className="admin-button" type="button" onClick={handleLogout}>
           sair
         </button>
       </header>
-      <main className="admin-main">
-        {loadError ? (
-          <div className="admin-error" role="alert">
-            <p>{loadError}</p>
-            <button className="admin-button" type="button" onClick={load}>
-              tentar de novo
+      <div className="admin-body">
+        <nav className="admin-nav" aria-label="Seções do conteúdo">
+          {SECTION_KEYS.map((key) => (
+            <button
+              key={key}
+              type="button"
+              className={`admin-nav-item mono ${active === key ? 'is-active' : ''}`}
+              aria-current={active === key ? 'true' : undefined}
+              onClick={() => setActive(key)}
+            >
+              ~/{SECTION_LABELS[key]}
+              {changed.includes(key) ? <span className="admin-nav-dot" title="modificado" /> : null}
             </button>
-          </div>
-        ) : (
-          <p className="mono dim">
-            conteúdo carregado: {Object.keys(server?.content ?? {}).length} seções
-          </p>
-        )}
-      </main>
+          ))}
+        </nav>
+        <main className="admin-main">
+          {loadError ? (
+            <div className="admin-error" role="alert">
+              <p>{loadError}</p>
+              <button className="admin-button" type="button" onClick={load}>
+                tentar de novo
+              </button>
+            </div>
+          ) : null}
+          {draft === null ? <p className="mono dim">carregando conteúdo…</p> : renderSection()}
+        </main>
+      </div>
     </div>
   );
 }
