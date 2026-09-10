@@ -26,6 +26,7 @@ export default function AdminApp() {
   const [reviewing, setReviewing] = useState(false);
   const [publishing, setPublishing] = useState(false);
   const [publishError, setPublishError] = useState(null);
+  const [publishConflict, setPublishConflict] = useState(false);
   const [publishResult, setPublishResult] = useState(null);
   const [reauth, setReauth] = useState(false);
   const [reauthError, setReauthError] = useState(null);
@@ -33,6 +34,14 @@ export default function AdminApp() {
   const load = useCallback(async () => {
     try {
       const { content, sha } = await fetchContent();
+      const validation = validateContent(content);
+      if (!validation.ok) {
+        setLoadError(
+          `Conteúdo do repositório com campos inválidos: ${validation.errors.slice(0, 3).join('; ')}`,
+        );
+        setStatus('authenticated');
+        return;
+      }
       setServer({ content, sha });
       setLoadError(null);
       setStatus('authenticated');
@@ -84,6 +93,7 @@ export default function AdminApp() {
 
     setPublishing(true);
     setPublishError(null);
+    setPublishConflict(false);
     try {
       const result = await publish({
         content: draft,
@@ -101,8 +111,9 @@ export default function AdminApp() {
         setReauth(true);
       } else if (error.code === 'conflict') {
         setPublishError(
-          'O conteúdo mudou no repositório desde que o painel carregou. Recarregue para ver a versão atual — seu rascunho continua salvo neste navegador.',
+          'O conteúdo mudou no repositório desde que o painel carregou. Seu rascunho continua salvo neste navegador — use "buscar versão atual" para carregar o conteúdo mais recente antes de publicar de novo.',
         );
+        setPublishConflict(true);
         setReviewing(false);
       } else {
         setPublishError(error.message);
@@ -111,6 +122,16 @@ export default function AdminApp() {
     } finally {
       setPublishing(false);
     }
+  }
+
+  async function handleResolveConflict() {
+    const confirmed = window.confirm(
+      'Buscar a versão atual vai descartar o rascunho salvo neste navegador e carregar o conteúdo mais recente do repositório. Continuar?',
+    );
+    if (!confirmed) return;
+    setPublishError(null);
+    setPublishConflict(false);
+    await load();
   }
 
   async function handleReauth(password) {
@@ -240,9 +261,11 @@ export default function AdminApp() {
         busy={publishing}
         result={publishResult}
         error={publishError}
+        onResolveConflict={publishConflict ? handleResolveConflict : undefined}
         onDismiss={() => {
           setPublishResult(null);
           setPublishError(null);
+          setPublishConflict(false);
         }}
       />
     </div>

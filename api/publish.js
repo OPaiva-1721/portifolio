@@ -38,7 +38,7 @@ export default async function handler(req, res) {
 
   try {
     const { commitSha, commitUrl } = await writeContentFile({ content, sha, message });
-    return sendJson(res, 200, { commitSha, commitUrl, sha: commitSha });
+    return sendJson(res, 200, { commitSha, commitUrl });
   } catch (error) {
     console.error('publish:', error.code, error.message);
     const status = error.code === 'conflict' ? 409 : 502;

@@ -22,7 +22,7 @@ A trajetória de carreira é apresentada com a metáfora de histórico de commit
 
 - SPA em React + Vite, hospedada na Vercel (https://portifolio-orcin-mu.vercel.app).
 - Rota `/#cv` alterna para uma versão de currículo imprimível (`window.print`), separada da landing principal com hero e vídeo de fundo.
-- Conteúdo centralizado em `src/data/content.js` (bio, formação, certificações, "commits" de experiência, projetos, contato).
+- Conteúdo centralizado em `src/data/content.json` (bio, formação, certificações, "commits" de experiência, projetos, contato); `src/data/content.js` reexporta esse JSON para não quebrar os imports existentes dos componentes.
 - Rota `/#admin` abre um painel protegido por senha que edita `src/data/content.json` e publica as alterações como commit no repositório, sem passar pelo código.
 
 ## Capabilities and Constraints

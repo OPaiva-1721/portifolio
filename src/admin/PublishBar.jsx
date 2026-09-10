@@ -1,6 +1,6 @@
 import { SECTION_LABELS } from '../data/schema.js';
 
-export default function PublishBar({ changed, onReview, busy, result, error, onDismiss }) {
+export default function PublishBar({ changed, onReview, busy, result, error, onResolveConflict, onDismiss }) {
   if (result) {
     return (
       <div className="admin-publish-bar is-success" role="status">
@@ -21,6 +21,11 @@ export default function PublishBar({ changed, onReview, busy, result, error, onD
     return (
       <div className="admin-publish-bar is-error" role="alert">
         <span>{error}</span>
+        {onResolveConflict ? (
+          <button className="admin-button" type="button" onClick={onResolveConflict}>
+            buscar versão atual
+          </button>
+        ) : null}
         <button className="admin-button" type="button" onClick={onDismiss}>
           fechar
         </button>
